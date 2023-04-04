@@ -9,6 +9,7 @@ export const InputText = ({
   return (
     <Box>
       <TextField
+        fullWidth
         error={!!meta.error}
         label={label}
         value={value}
@@ -29,6 +30,7 @@ export const InputDate = ({
   return (
     <Box>
       <TextField
+        fullWidth
         type="date"
         error={!!meta.error}
         label={label}

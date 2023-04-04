@@ -8,7 +8,7 @@ const SelectCustom = ({
   ...rest
 }) => {
   return (
-    <FormControl>
+    <FormControl fullWidth>
       <InputLabel>{label}</InputLabel>
       <Select
         value={value}

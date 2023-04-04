@@ -3,9 +3,10 @@ import { Box, Button, Grid } from "@mui/material";
 import { Field, Form } from "react-final-form";
 import { InputDate, InputText } from "../../components/Input/Input";
 import Select from "../../components/Select/Select";
+import Layout from "../../components/Layout/Layout";
 const User = () => {
   return (
-    <Box sx={{ p: 1 }}>
+    <Layout title={"Gestión de licencias"}>
       <Form
         onSubmit={(values) => {
           console.log(values);
@@ -42,7 +43,7 @@ const User = () => {
           </Box>
         )}
       />
-    </Box>
+    </Layout>
   );
 };
 
