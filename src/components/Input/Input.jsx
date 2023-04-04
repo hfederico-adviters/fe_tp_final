@@ -9,10 +9,10 @@ export const InputText = ({
   return (
     <Box>
       <TextField
-        error={meta.error && "error"}
+        error={!!meta.error}
         label={label}
         value={value}
-        onChange={(evt) => onChange(evt.target.value)}
+        onChange={onChange}
         helperText={meta.error}
         variant="outlined"
         size="small"
@@ -20,13 +20,21 @@ export const InputText = ({
     </Box>
   );
 };
-export const InputDate = ({ input: { value, onChange }, ...rest }) => {
+export const InputDate = ({
+  label,
+  input: { value, onChange },
+  meta,
+  ...rest
+}) => {
   return (
     <Box>
       <TextField
-        value={value}
-        onChange={(evt) => onChange(evt.target.value)}
         type="date"
+        error={!!meta.error}
+        label={label}
+        value={value}
+        onChange={onChange}
+        helperText={meta.error}
         variant="outlined"
         size="small"
       />
