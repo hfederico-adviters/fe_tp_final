@@ -1,5 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, Typography } from "@mui/material";
+import { Avatar, Box, ListItemAvatar, Typography } from "@mui/material";
 import { body, boxPrincipal, header, title } from "./style";
 const Layout = ({ title, children }) => {
   return (
@@ -9,7 +9,9 @@ const Layout = ({ title, children }) => {
         <Typography variant="h3" sx={title}>
           {title}
         </Typography>
-        <MenuIcon />
+        <ListItemAvatar>
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        </ListItemAvatar>
       </Box>
       <Box sx={body}>{children}</Box>
     </Box>

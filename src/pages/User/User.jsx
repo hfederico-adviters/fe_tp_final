@@ -2,15 +2,13 @@ import React from "react";
 import { Box, Button, Grid } from "@mui/material";
 import { Field, Form } from "react-final-form";
 import { InputDate, InputText } from "../../components/Input/Input";
-import Select from "../../components/Select/Select";
+import Select from "../../components/SelectCustom/Select";
 import Layout from "../../components/Layout/Layout";
 const User = () => {
   return (
     <Layout title={"Gestión de licencias"}>
       <Form
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={(values) => {}}
         validate={(value) => {
           let error = {};
           if (value.name === "fede") {
