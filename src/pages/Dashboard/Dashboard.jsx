@@ -2,25 +2,31 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import Layout from "../../components/Layout/Layout";
 import ListCustom from "../../components/ListCustom/ListCustom";
 import { boxBody, card, container, typografy } from "./style";
+import Calender from "./components/Calender";
 
 const Dashboard = () => {
-  const array = [1, 2, 3, 4, 5];
+  const array = ["card1", "card2", "card3", "card4", "card5"];
+  const proxFeriado = [
+    { date: "24 - Febrero", description: "Carnaval" },
+    { date: "25 - Febrero", description: "Carnaval" },
+  ];
   return (
     <Layout title={"Inicio"}>
       <Container sx={container}>
-        <Box sx={boxBody}>
-          <Typography sx={typografy}></Typography>
-          <Box sx={card}>
-            {array.map((item) => (
-              <ListCustom key={"1" + item} onClick={() => console.log(item)} />
-            ))}
-          </Box>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Calender data={proxFeriado} />
+          <Calender data={proxFeriado} />
         </Box>
         <Box sx={boxBody}>
           <Typography sx={typografy}>solicitudes pendientes</Typography>
           <Box sx={card}>
             {array.map((item) => (
-              <ListCustom key={"2" + item} onClick={() => console.log(item)} />
+              <ListCustom
+                key={"2" + item}
+                onClickCard={() => console.log(item)}
+                onClickButtonAccept={() => console.log("aceptar")}
+                onClickButtonDecline={() => console.log("rechazar")}
+              />
             ))}
           </Box>
         </Box>
@@ -28,7 +34,10 @@ const Dashboard = () => {
           <Typography sx={typografy}>proximas licencias aprobadas</Typography>
           <Box sx={card}>
             {array.map((item) => (
-              <ListCustom key={"3" + item} onClick={() => console.log(item)} />
+              <ListCustom
+                key={"3" + item}
+                onClickCard={() => console.log(item)}
+              />
             ))}
           </Box>
         </Box>

@@ -5,10 +5,16 @@ import { InputDate, InputText } from "../../components/Input/Input";
 import Select from "../../components/SelectCustom/Select";
 import Layout from "../../components/Layout/Layout";
 const User = () => {
+  const arrayDeOption = [
+    { value: "Pepito", label: "fede" },
+    { value: 2, label: "mathi" },
+  ];
   return (
     <Layout title={"Gestión de licencias"}>
       <Form
-        onSubmit={(values) => {}}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
         validate={(value) => {
           let error = {};
           if (value.name === "fede") {
@@ -29,7 +35,7 @@ const User = () => {
                 <Field
                   name="select"
                   component={Select}
-                  options={[{ value: 1, label: "fede" }]}
+                  options={arrayDeOption}
                 />
               </Grid>
               <Grid item xs={8}>

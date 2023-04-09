@@ -26,3 +26,8 @@ export const textThird = {
   letterSpacing: "0.15px",
 };
 export const list = { minWidth: "250px", maxHeight: "70px", cursor: "pointer" };
+export const container = {
+  display: "flex",
+  justifyContent: "space-between",
+  width: "100%",
+};
