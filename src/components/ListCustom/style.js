@@ -18,11 +18,16 @@ export const textSecondary = {
 };
 export const textThird = {
   color: "#000000",
-
   fontStyle: "normal",
   fontWeight: 400,
   fontSize: "11px",
   lineHeight: "150%",
   letterSpacing: "0.15px",
+  ml: "4px",
 };
 export const list = { minWidth: "250px", maxHeight: "70px", cursor: "pointer" };
+export const container = {
+  display: "flex",
+  justifyContent: "space-between",
+  width: "100%",
+};

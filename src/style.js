@@ -1,5 +1,5 @@
 export const principal = {
-  background: "#c2c2c2",
+  background: "#FBFBFB",
   height: "100%",
   minHeight: "100vh",
   width: "100%",
