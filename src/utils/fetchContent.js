@@ -2,7 +2,7 @@ import axios from "axios";
 import camelcaseKeys from "camelcase-keys";
 
 const httpClient = axios.create({
-  baseURL: "https://bootcamp-adviters.herokuapp.com",
+  baseURL: "http://172.12.50.57:8765/api/v1/",
 });
 export const Method = {
   GET: "GET",

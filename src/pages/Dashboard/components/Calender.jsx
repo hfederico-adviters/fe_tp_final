@@ -11,7 +11,7 @@ const Calender = ({ data }) => {
         </>
         <Box sx={{ display: "flex", flexDirection: "column", p: 1 }}>
           {data?.map(({ date, description }) => (
-            <Typography variant="h4">{`${date} (${description})`}</Typography>
+            <Typography key={`${date}`} variant="h4">{`${date} (${description})`}</Typography>
           ))}
         </Box>
       </Box>

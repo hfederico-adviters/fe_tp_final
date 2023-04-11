@@ -11,7 +11,7 @@ import { AutenticacionContext } from "./context/AutenticacionProvider";
 
 function App() {
   const { usuario } = useContext(AutenticacionContext);
-  console.log(usuario);
+  
   return (
     <>
       {/* <Box sx={principal}>
@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {usuario ? (
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<User />} />
           ) : (
             <Route path="/" element={<Login />} />
           )}
