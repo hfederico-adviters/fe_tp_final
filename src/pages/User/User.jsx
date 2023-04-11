@@ -6,32 +6,34 @@ import Select from "../../components/Select/Select";
 import Layout from "../../components/Layout/Layout";
 import Boton from "../../components/Button/Button";
 import imagen from "../squirtle.png";
+import { initialValues } from "./constants";
 const User = () => {
   return (
-    <Layout title={"Gestión de licencias"}>
+    <Layout title={"Gestión de licencias"} >
       <Card sx={{width: "70%", border: "0.2px solid #797979"}}>
         <Box sx={{fontSize: "2rem", color: "#FF7B7B" , margin: "2rem"}}>Mi Perfil</Box>
       <Form 
         onSubmit={(values) => {
           console.log(values);
         }}
-        validate={(value) => {
+        initialValues={initialValues}
+        validate={(values) => {
           let error = {};
-          if (value.name === "") {
-            error.name = "El nombre no puede estar vacio";
+          if (!values?.apellido) {
+            error.apellido = "Este campo no puede estar vacio";
           }
           return error;
         }}
-        render={({ handleSubmit }) => (
+        render={({ handleSubmit, values }) => (
           <Box  sx={{margin: "2rem"}}>
-            
-            <Grid container spacing={2}>
-            <Grid item xs={4}>
+            {console.log(values)}
+           <Grid container spacing={2}>
+            <Grid item xs={4}> 
                 <>
-                  <img src={imagen} alt="imagen" style={{width: "10rem"}}/>
+                  <img src={imagen} alt="imagen" style={{width: "8rem"}}/>
                 </>
               
-              </Grid>
+               </Grid>
               <Grid item xs={4}>
                 <Field name="name"  component={InputText} label="Nombre" />
               
@@ -42,7 +44,7 @@ const User = () => {
               </Grid>
               <Grid item xs={4}></Grid>
               <Grid item xs={4}>
-                <Field name="surname" component={InputText} label="Apellido" />
+                <Field name="apellido" component={InputText} label="Apellido" />
               </Grid>
               <Grid item xs={4}>
                 <Field name="passwordconf" component={InputPassword} label="repetir password" />
@@ -55,10 +57,10 @@ const User = () => {
                 />
               </Grid>
               <Grid item xs={4}>
-                <Field name="date" component={InputDate} />
+                <Field name="date" component={InputDate} label="Fecha Nacimiento" />
               </Grid>
               <Grid item xs={4}>
-                <Field name="date" component={InputDate} />
+                <Field name="date" component={InputDate} label="Fecha Ingreso" />
               </Grid>
               
               
@@ -70,17 +72,19 @@ const User = () => {
               <Grid item xs={4}>
                 <Field name="cuil" component={InputNumber} label="CUIL" />
               </Grid>
+              <Grid item xs={4}></Grid>
               <Grid item xs={4}>
                 <Field name="email" component={InputText} label="Correo electrónico" />
               </Grid>
               <Grid item xs={4}>
                 <Field name="cellphone" component={InputNumber} label="Teléfono" />
               </Grid>
+              <Grid item xs={4}></Grid>
               <Grid item xs={4}>
                 <Field name="street" component={InputText} label="Calle" />
               </Grid>
               <Grid item xs={4}>
-                <Field name="number" component={InputNumber} label="ALtura" />
+                <Field name="number" component={InputNumber} label="Altura" />
               </Grid>
               <Grid item xs={4}>
                 <Field name="postalcode" component={InputNumber} label="Código Postal" />
@@ -107,12 +111,15 @@ const User = () => {
                 <Field name="holidays" component={InputNumber} label="Días Vacaciones" />
               </Grid>
             </Grid>
-
-            <Boton name="Guardar"  sx={{display: "flex", }}/>
+          <Box sx={{width: "100%", display: "flex", justifyContent: "flex-end", marginTop: "1rem"}}>
+            <Boton name="Guardar" onclick={handleSubmit} />
           </Box>
+          </Box>
+          
         )}
-      />
-      </Card>
+        
+      /> 
+      </Card> 
     </Layout>
   );
 };

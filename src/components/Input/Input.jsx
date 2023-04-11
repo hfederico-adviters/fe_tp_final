@@ -6,15 +6,16 @@ export const InputText = ({
   meta,
   ...rest
 }) => {
+  
   return (
     <Box>
       <TextField
         fullWidth
-        error={!!meta.error}
+        error={ !!meta.touched && !!meta.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta.error}
+        helperText={meta.touched && meta.error}
         variant="outlined"
         size="small" 
         
@@ -33,11 +34,11 @@ export const InputPassword = ({
     <Box>
       <TextField
         fullWidth
-        error={!!meta.error}
+        error={ !!meta.touched && !!meta.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta.error}
+        helperText={ !!meta.touched && meta.error}
         variant="outlined"
         size="small" 
         type="password"
@@ -88,6 +89,7 @@ export const InputDate = ({
         helperText={meta.error}
         variant="outlined"
         size="small"
+        focused
       />
     </Box>
   );
