@@ -3,9 +3,10 @@ import Layout from "../../components/Layout/Layout";
 import ListCustom from "../../components/ListCustom/ListCustom";
 import { boxBody, card, container, typografy } from "./style";
 import Calender from "./components/Calender";
+import CircleColor from "../../components/CircleColor/CircleColor";
 
 const Dashboard = () => {
-  const array = ["card1", "card2", "card3", "card4", "card5"];
+  const array = ["card1", "card2", "card3", "card4"];
   const proxFeriado = [
     { date: "24 - Febrero", description: "Carnaval" },
     { date: "25 - Febrero", description: "Carnaval" },

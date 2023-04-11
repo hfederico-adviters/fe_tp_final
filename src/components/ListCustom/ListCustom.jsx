@@ -16,6 +16,7 @@ import {
 import { Box } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
+import CircleColor from "../CircleColor/CircleColor";
 const ListCustom = ({
   onClickCard,
   onClickButtonAccept,
@@ -31,7 +32,10 @@ const ListCustom = ({
           <Box sx={boxText} onClick={onClickCard}>
             <Typography sx={textPrimary}>Jennifer</Typography>
             <Typography sx={textSecondary}>25/09 - 31/09</Typography>
-            <Typography sx={textThird}>vacaciones</Typography>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <CircleColor color="red" />
+              <Typography sx={textThird}>vacaciones</Typography>
+            </Box>
           </Box>
           {onClickButtonAccept && onClickButtonDecline && (
             <Box
@@ -55,7 +59,6 @@ const ListCustom = ({
           )}
         </Box>
       </ListItem>
-
       <Divider variant="inset" component="li" />
     </List>
   );
