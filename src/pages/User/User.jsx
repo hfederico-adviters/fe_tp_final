@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, Grid } from "@mui/material";
+import { Box, Card, Grid, Switch } from "@mui/material";
 import { Field, Form } from "react-final-form";
 import {
   InputDate,
@@ -12,6 +12,7 @@ import Boton from "../../components/Button/Button";
 import imagen from "../squirtle.png";
 import { initialValues } from "./constants";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
+
 import { postAddUser } from "../../services/usuariosServices";
 const User = () => {
   const arrayDeOption = [
@@ -31,6 +32,7 @@ const User = () => {
         </Box>
         <Form
           onSubmit={(values) => {
+            const body={...values, image:"", administration:true}
             postAddUser(values);
             console.log(values);
           }}
@@ -68,7 +70,7 @@ const User = () => {
                 </Grid>
                 <Grid item xs={4}>
                   <Field
-                    name="passwordconf"
+                    name="passwsordconf"
                     component={InputPassword}
                     label="repetir password"
                     validate={validar}
@@ -176,6 +178,12 @@ const User = () => {
                     validate={validar}
                   />
                 </Grid>
+                <Box sx={{display: "flex", alignItems: "center", marginTop: "1rem"}}>
+                <Grid item xs={4}>
+                  <Field name="switch" component={Switch} />
+                </Grid>  
+                Administrador
+                </Box>
               </Grid>
               <Box
                 sx={{
