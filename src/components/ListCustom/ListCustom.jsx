@@ -5,7 +5,6 @@ import Divider from "@mui/material/Divider";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-<<<<<<< HEAD
 import {
   boxText,
   list,
@@ -14,13 +13,11 @@ import {
   textThird,
   container,
 } from "./style";
-=======
-import { boxText, list, textPrimary, textSecondary, textThird } from "./style";
->>>>>>> 2400710e0f5a01418536249842eb508e59f5d62c
 import { Box } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
 import CircleColor from "../CircleColor/CircleColor";
+
 const ListCustom = ({
   onClickCard,
   onClickButtonAccept,

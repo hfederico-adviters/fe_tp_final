@@ -1,11 +1,7 @@
 import { Avatar, Box, ListItemAvatar, Typography } from "@mui/material";
-<<<<<<< HEAD
 import { body, boxPrincipal, header } from "./style";
 import MenuCustom from "../MenuCustom/MenuCustom";
 import { MenuNavigation } from "./constants";
-=======
-import { body, boxPrincipal, header} from "./style";
->>>>>>> 2400710e0f5a01418536249842eb508e59f5d62c
 const Layout = ({ title, children }) => {
   return (
     <Box sx={boxPrincipal}>
