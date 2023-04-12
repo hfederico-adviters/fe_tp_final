@@ -3,6 +3,7 @@ import { Box, Card, Grid } from "@mui/material";
 import { Field, Form } from "react-final-form";
 import {
   InputDate,
+  InputDateCustom,
   InputNumber,
   InputPassword,
   InputText,
@@ -12,6 +13,7 @@ import Boton from "../../components/Button/Button";
 import imagen from "../squirtle.png";
 import { initialValues } from "./constants";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
+import DatePicker from "react-date-picker";
 const User = () => {
   const arrayDeOption = [
     { value: "Pepito", label: "fede" },
@@ -37,17 +39,16 @@ const User = () => {
           }}
           render={({ handleSubmit, values }) => (
             <Box sx={{ margin: "2rem" }}>
-              {console.log(values)}
               <Grid container spacing={2}>
                 <Grid item xs={4}>
                   <>
                     <img src={imagen} alt="imagen" style={{ width: "8rem" }} />
                   </>
                 </Grid>
+
                 <Grid item xs={4}>
                   <Field name="name" component={InputText} label="Nombre" />
                 </Grid>
-
                 <Grid item xs={4}>
                   <Field
                     name="password"
@@ -91,11 +92,9 @@ const User = () => {
                     label="Fecha Ingreso"
                   />
                 </Grid>
-
                 <Grid item xs={4}>
                   <Field name="dni" component={InputNumber} label="DNI" />
                 </Grid>
-
                 <Grid item xs={4}>
                   <Field name="cuil" component={InputNumber} label="CUIL" />
                 </Grid>
