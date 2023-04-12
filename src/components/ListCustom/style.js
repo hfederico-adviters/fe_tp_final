@@ -31,3 +31,22 @@ export const container = {
   justifyContent: "space-between",
   width: "100%",
 };
+
+///Coding de Jenn
+
+export const dateStyle = {
+  color: "pink",
+  fontWeight: "bold",
+};
+
+export const listItemGreen = {
+  borderLeft: "6px solid #98FB98",
+};
+
+export const listItemBlue = {
+  borderLeft: "6px solid #add8e6",
+};
+
+export const listItemRed = {
+  borderLeft: "6px solid #F9A3A3",
+};
