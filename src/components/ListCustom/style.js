@@ -26,3 +26,23 @@ export const textThird = {
   letterSpacing: "0.15px",
 };
 export const list = { minWidth: "250px", maxHeight: "70px", cursor: "pointer" };
+
+
+///Coding de Jenn
+
+export const dateStyle = {
+  color: 'pink',
+  fontWeight: "bold",
+};
+
+export const listItemGreen = {
+  borderLeft: '6px solid #98FB98',
+};
+
+export const listItemBlue = {
+  borderLeft: '6px solid #add8e6',
+};
+
+export const listItemRed = {
+  borderLeft: '6px solid #F9A3A3',
+};

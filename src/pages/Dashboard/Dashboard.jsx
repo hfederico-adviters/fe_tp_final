@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Layout from "../../components/Layout/Layout";
 import ListCustom from "../../components/ListCustom/ListCustom";
 import { boxBody, card, container, typografy } from "./style";

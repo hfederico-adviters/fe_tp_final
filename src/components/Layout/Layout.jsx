@@ -1,6 +1,6 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, Box, ListItemAvatar, Typography } from "@mui/material";
-import { body, boxPrincipal, header, title } from "./style";
+import { body, boxPrincipal, header} from "./style";
 const Layout = ({ title, children }) => {
   return (
     <Box sx={boxPrincipal}>
