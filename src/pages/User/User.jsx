@@ -79,7 +79,7 @@ const User = () => {
                 </Grid>
                 <Grid item xs={4}>
                   <Field
-                    name="idUser"
+                    name="idUserSupervice"
                     component={SelectCustom}
                     options={[{ value: 1, label: "fede" }]}
                     validate={validar}
