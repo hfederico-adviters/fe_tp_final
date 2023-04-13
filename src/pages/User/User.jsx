@@ -14,6 +14,7 @@ import { initialValues } from "./constants";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
 
 import { postAddUser } from "../../services/usuariosServices";
+import SwitchCustom from "../../components/SwitchCustom/SwitchCustom";
 const User = () => {
   const arrayDeOption = [
     { value: "Pepito", label: "fede" },
@@ -48,7 +49,7 @@ const User = () => {
                   </>
                 </Grid>
                 <Grid item xs={4}>
-                  <Field name="username" component={InputText} label="Nombre" validate={validar} />
+                  <Field name="firstName" component={InputText} label="Nombre" validate={validar} />
                 </Grid>
 
                 <Grid item xs={4}>
@@ -62,7 +63,7 @@ const User = () => {
                 <Grid item xs={4}></Grid>
                 <Grid item xs={4}>
                   <Field
-                    name="lastname"
+                    name="lastName"
                     component={InputText}
                     label="Apellido"
                     validate={validar}
@@ -78,7 +79,7 @@ const User = () => {
                 </Grid>
                 <Grid item xs={4}>
                   <Field
-                    name="supervice"
+                    name="idUser"
                     component={SelectCustom}
                     options={[{ value: 1, label: "fede" }]}
                     validate={validar}
@@ -107,7 +108,7 @@ const User = () => {
                 </Grid>
 
                 <Grid item xs={4}>
-                  <Field name="cuil" component={InputNumber} label="CUIL" validate={validar}/>
+                  <Field name="cuil" component={InputText} label="CUIL" validate={validar}/>
                   
                 </Grid>
                 <Grid item xs={4}></Grid>
@@ -178,12 +179,20 @@ const User = () => {
                     validate={validar}
                   />
                 </Grid>
-                <Box sx={{display: "flex", alignItems: "center", marginTop: "1rem"}}>
                 <Grid item xs={4}>
-                  <Field name="switch" component={Switch} />
+                  <Field
+                    name="administrator"
+                    component={SwitchCustom}
+                    //options={[{ value: 1, label: "fede" }]}
+                    //validate={validar}
+                  />
+                </Grid>
+                {/* <Box sx={{display: "flex", alignItems: "center", marginTop: "1rem"}}>
+                <Grid item xs={4}>
+                  <Field name="administrator" component={Switch} />
                 </Grid>  
                 Administrador
-                </Box>
+                </Box>  */}
               </Grid>
               <Box
                 sx={{
