@@ -22,7 +22,10 @@ export const fetchContent = async (url, config = {}) => {
           ...headersOptions,
         }
       : {
-          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": '*',
+          "Access-Control-Allow-Method" : "POST, GET, PUT, DELETE, OPTIONS, HEAD", 
+          "Access-Control-Allow-Headers":"*", 
+          "Content-Type": 'application/json', 
           ...headersOptions,
         };
 
