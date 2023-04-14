@@ -3,7 +3,7 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import PollIcon from "@mui/icons-material/Poll";
 export const MenuNavigation = [
   { name: "Dashboard", icon: PollIcon, href: "/" },
-  { name: "Cargar licencias", icon: CalendarTodayIcon, href: "/Licenses" },
+  { name: "Cargar licencias", icon: CalendarTodayIcon, href: "/licenses" },
   { name: "Administrar usuarios", icon: GroupsIcon, href: "/" },
   { name: "Mantenimientos de calendario", icon: CalendarTodayIcon, href: "/" },
 ];

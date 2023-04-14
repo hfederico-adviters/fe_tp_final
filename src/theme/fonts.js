@@ -1,5 +1,4 @@
 export const fontConfig = {
-  fontFamily: "Roboto",
   h1: {
     fontStyle: "normal",
     fontWeight: 700,
@@ -50,10 +49,10 @@ export const fontConfig = {
     fontSize: 12,
   },
   body2: {
+    color: "rgba(0, 0, 0, 0.87)",
     fontStyle: "normal",
-    fontWeight: 800,
-    fontSize: 12,
-    color: "#4A4B4B",
+    fontWeight: 600,
+    fontSize: 14,
   },
   caption: {
     fontStyle: "normal",

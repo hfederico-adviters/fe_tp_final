@@ -21,7 +21,7 @@ function App() {
         <Routes>
           {usuario ? (
             <>
-              <Route path="/" element={<User />} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/licenses" element={<Licenses />} />
               <Route path="/loader" element={<Loader />} />
               <Route path="/Dashboard" element={<Dashboard />} />

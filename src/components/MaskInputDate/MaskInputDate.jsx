@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import DatePickerCustom from "../DatePickerCustom/DatePickerCustom";
-const MaskInputDate = ({ month, day, dayDescription, onClick }) => {
+const MaskInputDate = ({ month, day, dayDescription, onClick, children }) => {
   return (
     <Box
       sx={{
@@ -29,7 +28,6 @@ const MaskInputDate = ({ month, day, dayDescription, onClick }) => {
       >
         {month}
       </Typography>
-
       <Box
         sx={{
           display: "flex",
@@ -45,6 +43,7 @@ const MaskInputDate = ({ month, day, dayDescription, onClick }) => {
           {dayDescription}
         </Typography>
       </Box>
+      {children}
     </Box>
   );
 };

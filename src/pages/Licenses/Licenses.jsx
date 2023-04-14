@@ -1,55 +1,80 @@
 import Layout from "../../components/Layout/Layout";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import VacationDetails from "../../components/ListHoliday/ListHoliday";
 import { boxBody, container, typografy } from "../Dashboard/style";
 import AvatarLicence from "../../components/AvatarLicence/Avatarlicence";
-import DetailsLicence from "../../components/DetailsLicence/DetailsLicence";
-import DescriptionLicence from "../../components/DescriptionLicence/DescriptionLicence";
+import LicenceRangeDate from "../../components/LicenceRangeDate/LicenceRangeDate";
+import { Field, Form } from "react-final-form";
+import SelectCustom from "../../components/SelectCustom/SelectCustom";
+import { InputText } from "../../components/Input/Input";
 import FooterLicence from "../../FooterLicence/FooterLicence";
-import DatePickerCustom from "../../components/DatePickerCustom/DatePickerCustom";
-import MaskInputDate from "../../components/MaskInputDate/MaskInputDate";
 const Licenses = () => {
   return (
     <Layout title={"Carga de Licencias"}>
-      <DatePickerCustom />
-
-      <container sx={container}>
+      <Container sx={container}>
         <Grid container spacing={2}>
-          <Grid item xs={9}>
-            <Box sx={boxBody}>
-              <Typography sx={typografy}></Typography>
-              {/* <Box sx={card}>
-                            </Box>  */}
-              <AvatarLicence />
-              <Divider />
-              <Box sx={{ marginBottom: 20, marginTop: 4 }}>
-                <DetailsLicence />
-              </Box>
-              <Divider />
-              <Box>
-                <DescriptionLicence />
-              </Box>
-              <Box padding={7}></Box>
-              {/* <Divider />
-                           <Box sx={{marginBottom: 20, marginTop: 4}}>
-                           </Box> */}
-              <FooterLicence />
-              <Box padding={14}></Box>
-            </Box>
-          </Grid>
+          <Grid item xs={12} sm={6} md={8}>
+            <Form
+              onSubmit={(values) => {
+                console.log(values);
+              }}
+              initialValues={{ description: "Viaje al centro de la Tierra." }}
+              render={({ handleSubmit, values }) => (
+                <Grid container>
+                  <AvatarLicence nameUser="Federico" state="Aun No enviado" />
+                  <Divider />
+                  <Grid item xs={6}>
+                    <Box sx={{ p: 1 }}>
+                      <Field
+                        name="licenceId"
+                        label="Licencia"
+                        component={SelectCustom}
+                        sx={{ maxWidth: "150px" }}
+                        size="large"
+                        options={[
+                          { value: 1, label: "Vacaciones" },
+                          { value: 2, label: "Enfermedad" },
+                          { value: 3, label: "Examen" },
+                        ]}
+                      />
+                    </Box>
+                    <Box sx={{ mt: 2 }}>
+                      <LicenceRangeDate workDays="8 días laborales" />
+                    </Box>
+                  </Grid>
+                  <Grid item xs={6}></Grid>
 
-          <Grid item xs={3}>
+                  <Box sx={{ width: "100%", p: 1, mt: 2 }}>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      color="text.secondary"
+                    >
+                      DESCRIPCIÓN
+                    </Typography>
+                    <Field
+                      name="description"
+                      component={InputText}
+                      multiline
+                      rows={8}
+                      sx={{ width: "100%" }}
+                    />
+                  </Box>
+                  <Box sx={{ mt: 2 }}>
+                    <FooterLicence />
+                  </Box>
+                </Grid>
+              )}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
             <Box sx={boxBody}>
               <Typography sx={typografy}>Detalle de Vacaciones</Typography>
-              {/* <Box sx={card}>
-                                {/* {array.map((item) => (<ListCustom key={"3" + item} onClick={() => console.log(item)} />
-                                ))}
-                                 </Box> */}
               <VacationDetails />
             </Box>
           </Grid>
         </Grid>
-      </container>
+      </Container>
     </Layout>
   );
 };

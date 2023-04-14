@@ -21,3 +21,37 @@ export const containerCalender = {
   boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.25)",
   mt: 3,
 };
+
+export const boxTextListLicenses = {
+  display: "flex",
+  flexDirection: "column",
+};
+export const textPrimaryListLicenses = {
+  fontStyle: "normal",
+  fontWeight: 500,
+  fontSize: "14px",
+  lineHeight: "143%",
+};
+export const textSecondaryListLicenses = {
+  color: "rgba(0, 0, 0, 0.6)",
+  fontWeight: 400,
+};
+export const textThirdListLicenses = {
+  color: "#000000",
+  fontStyle: "normal",
+  fontWeight: 400,
+  fontSize: "11px",
+  lineHeight: "150%",
+  letterSpacing: "0.15px",
+  ml: "4px",
+};
+export const listListLicenses = {
+  minWidth: "250px",
+  maxHeight: "70px",
+  cursor: "pointer",
+};
+export const containerListLicenses = {
+  display: "flex",
+  justifyContent: "space-between",
+  width: "100%",
+};

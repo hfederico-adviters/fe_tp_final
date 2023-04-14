@@ -5,7 +5,8 @@ const SelectCustom = ({
   input: { value, onChange },
   meta,
   options,
-  ...rest
+  sx = {},
+  ...props
 }) => {
   return (
     <FormControl fullWidth>
@@ -13,12 +14,13 @@ const SelectCustom = ({
       <Select
         value={value}
         label={label}
-        
         onChange={onChange}
         error={!!meta.error}
         helpertext={meta.error}
         variant="outlined"
         size="small"
+        sx={sx}
+        {...props}
       >
         {options?.map(({ value, label }) => (
           <MenuItem key={`${value} ${label}`} value={value}>
