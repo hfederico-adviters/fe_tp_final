@@ -13,6 +13,7 @@ export const InputText = ({
        error={!!meta?.touched && !!meta?.error}
         label={label}
         value={value}
+        
         onChange={onChange}
        helperText={meta?.touched && meta?.error}
         variant="outlined"

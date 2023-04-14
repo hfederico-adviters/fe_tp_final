@@ -1,9 +1,19 @@
 import React from 'react'
-import {Switch} from "@mui/material";
+import {FormControlLabel, FormGroup, Switch} from "@mui/material";
+import { Label } from '@mui/icons-material';
 
-const SwitchCustom = () =>{
+const SwitchCustom = ({ label,
+    input: { value, onChange },
+    meta,
+    options,
+    ...rest
+}) =>{
   return (
-    <Switch/>
+    <FormGroup>
+   <FormControlLabel control={<Switch checked={value} onChange={onChange} />} /> 
+
+  </FormGroup>
+  
     
   )
 }

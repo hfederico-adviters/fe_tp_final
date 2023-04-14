@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, Grid, Switch } from "@mui/material";
+import { Box, Card, Grid} from "@mui/material";
 import { Field, Form } from "react-final-form";
 import {
   InputDate,
@@ -45,7 +45,9 @@ const User = () => {
               <Grid container spacing={2}>
                 <Grid item xs={4}>
                   <>
-                    <img src={imagen} alt="imagen" style={{ width: "8rem" }} />
+                    {/* <img src={imagen} alt="imagen" style={{ width: "8rem" }} /> */}
+                    {/* <input accept="image/*" type="file" /> */}
+                    
                   </>
                 </Grid>
                 <Grid item xs={4}>
@@ -135,19 +137,22 @@ const User = () => {
                 <Grid item xs={4}>
                   <Field name="addressNumber" component={InputNumber} label="Altura" validate={validar}/>
                 </Grid>
+                
                 <Grid item xs={4}>
                   <Field
                     name="postalCode"
+                    
                     component={InputNumber}
                     label="Código Postal"
                     validate={validar}
                   />
                 </Grid>
+                
                 <Grid item xs={4}>
-                  <Field name="tower" component={InputNumber} label="Torre" validate={validar}/>
+                  <Field name="tower" component={InputNumber} label="Torre"/>
                 </Grid>
                 <Grid item xs={4}>
-                  <Field name="floor" component={InputNumber} label="Piso" validate={validar}/>
+                  <Field name="floor" component={InputNumber} label="Piso"/>
                 </Grid>
                 <Grid item xs={4}>
                   <Field
@@ -179,14 +184,20 @@ const User = () => {
                     validate={validar}
                   />
                 </Grid>
+                <Box sx={{display: "flex", alignItems: "center", marginLeft: "1rem", marginTop: "1rem"}}>
+                  {console.log(values)}
                 <Grid item xs={4}>
                   <Field
                     name="administrator"
                     component={SwitchCustom}
-                    //options={[{ value: 1, label: "fede" }]}
-                    //validate={validar}
+                    type="checkbox"
+                    
                   />
                 </Grid>
+                
+                  Administrador
+                  
+                </Box>
                 {/* <Box sx={{display: "flex", alignItems: "center", marginTop: "1rem"}}>
                 <Grid item xs={4}>
                   <Field name="administrator" component={Switch} />
