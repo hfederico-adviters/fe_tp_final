@@ -6,35 +6,40 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import {
-  boxText,
-  list,
-  textPrimary,
-  textSecondary,
-  textThird,
-  container,
-} from "./style";
+  boxTextListLicenses,
+  listListLicenses,
+  textPrimaryListLicenses,
+  textSecondaryListLicenses,
+  textThirdListLicenses,
+  containerListLicenses,
+} from "../style";
 import { Box } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
-import CircleColor from "../CircleColor/CircleColor";
-const ListCustom = ({
+import CircleColor from "../../../components/CircleColor/CircleColor";
+
+const ListLicense = ({
   onClickCard,
   onClickButtonAccept,
   onClickButtonDecline,
+  withCircleColor = true,
+  sx = {},
 }) => {
   return (
-    <List sx={list}>
+    <List sx={{ ...listListLicenses, ...sx }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
-        <Box sx={container}>
-          <Box sx={boxText} onClick={onClickCard}>
-            <Typography sx={textPrimary}>Jennifer</Typography>
-            <Typography sx={textSecondary}>25/09 - 31/09</Typography>
+        <Box sx={containerListLicenses}>
+          <Box sx={boxTextListLicenses} onClick={onClickCard}>
+            <Typography sx={textPrimaryListLicenses}>Jennifer</Typography>
+            <Typography sx={textSecondaryListLicenses}>
+              25/09 - 31/09
+            </Typography>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <CircleColor color="red" />
-              <Typography sx={textThird}>vacaciones</Typography>
+              {withCircleColor && <CircleColor color="red" />}
+              <Typography sx={textThirdListLicenses}>vacaciones</Typography>
             </Box>
           </Box>
           {onClickButtonAccept && onClickButtonDecline && (
@@ -63,4 +68,4 @@ const ListCustom = ({
     </List>
   );
 };
-export default ListCustom;
+export default ListLicense;

@@ -5,8 +5,15 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Divider, Box, Typography } from "@mui/material";
 import { styleLink, typografy } from "./style";
-
-const MenuCustom = ({ datos, sx = {} }) => {
+import Badge from "@mui/material/Badge";
+const MenuCustom = ({
+  datos,
+  IconCustom,
+  signOut,
+  notifications,
+  badge = false,
+  sx = {},
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -15,9 +22,29 @@ const MenuCustom = ({ datos, sx = {} }) => {
     setAnchorEl(null);
   };
   return (
-    <Box>
+    <>
       <Button onClick={handleClick}>
-        <MenuIcon sx={{ ...sx }} />
+        {badge ? (
+          <Badge
+            badgeContent={notifications}
+            color="Notification"
+            sx={{ color: "white" }}
+          >
+            {IconCustom ? <IconCustom sx={{ ...sx }} /> : <MenuIcon />}
+          </Badge>
+        ) : (
+          <>
+            {IconCustom ? (
+              <IconCustom
+                alt="Remy Sharp"
+                src="/static/images/avatar/1.jpg"
+                sx={{ ...sx }}
+              />
+            ) : (
+              <MenuIcon sx={{ ...sx }} />
+            )}
+          </>
+        )}
       </Button>
       <Menu
         anchorEl={anchorEl}
@@ -32,31 +59,54 @@ const MenuCustom = ({ datos, sx = {} }) => {
           horizontal: "left",
         }}
       >
-        {datos?.map(({ href, name, icon }, index) => (
-          <LinkStyleMain
-            key={`${href}${name}`}
-            href={href}
-            name={name}
-            handleClose={handleClose}
-            isFirstData={index === 0}
-            islatestdata={index + 1 === datos.length}
-            Icon={icon}
-          />
-        ))}
+        <Box>
+          {datos?.map(({ href, name, icon }, index) => (
+            <LinkStyleMain
+              key={`${href}${name}${index}`}
+              href={href}
+              name={name}
+              islatestdata={index + 1 === datos.length}
+              Icon={icon}
+            />
+          ))}
+          {signOut && (
+            <LinkStyleMain signOut={signOut} name={"Cerrar sesion"} />
+          )}
+        </Box>
       </Menu>
-    </Box>
+    </>
   );
 };
-const LinkStyleMain = ({ href, name, handleClose, islatestdata, Icon }) => (
-  <Box>
-    <Button href={href} onClick={handleClose}>
-      <Box sx={styleLink}>
-        {Icon && <Icon />}
-        <Typography sx={typografy}>{name}</Typography>
-      </Box>
-    </Button>
-
-    {!islatestdata && <Divider />}
-  </Box>
+const LinkStyleMain = ({
+  href,
+  name,
+  handleClose,
+  islatestdata,
+  Icon,
+  signOut,
+}) => (
+  <>
+    {signOut ? (
+      <>
+        <Divider />
+        <Button onClick={signOut}>
+          <Box sx={styleLink}>
+            {Icon && <Icon />}
+            <Typography sx={typografy}>{name}</Typography>
+          </Box>
+        </Button>
+      </>
+    ) : (
+      <>
+        <Button href={href} onClick={handleClose}>
+          <Box sx={styleLink}>
+            {Icon && <Icon />}
+            <Typography sx={typografy}>{name}</Typography>
+          </Box>
+        </Button>
+        {!islatestdata && <Divider />}
+      </>
+    )}
+  </>
 );
 export default MenuCustom;
