@@ -30,6 +30,7 @@ const VacationDetails = () => {
           <EditIcon />
         </ListItemIcon>
       </ListItem>
+      <Divider />
     </List>
   );
 };

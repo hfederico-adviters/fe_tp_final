@@ -14,11 +14,11 @@ export const InputText = ({
     <Box sx={sx}>
       <TextField
         fullWidth
-        error={!!meta.touched && !!meta.error}
+        error={!!meta?.touched && !!meta?.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta.touched && meta.error}
+        helperText={meta?.touched && meta?.error}
         variant="outlined"
         size="small"
         {...props}
@@ -37,11 +37,11 @@ export const InputPassword = ({
     <Box>
       <TextField
         fullWidth
-        error={!!meta.touched && !!meta.error}
+        error={!!meta?.touched && !!meta?.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={!!meta.touched && meta.error}
+        helperText={!!meta?.touched && meta?.error}
         variant="outlined"
         size="small"
         type="password"
@@ -60,11 +60,11 @@ export const InputNumber = ({
       <TextField
         fullWidth
         type="number"
-        error={!!meta.error}
+        error={!!meta?.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta.error}
+        helperText={meta?.error}
         variant="outlined"
         size="small"
       />
@@ -82,11 +82,11 @@ export const InputDate = ({
       <TextField
         fullWidth
         type="date"
-        error={!!meta.error}
+        error={!!meta?.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta.error}
+        helperText={meta?.error}
         variant="outlined"
         size="small"
         focused

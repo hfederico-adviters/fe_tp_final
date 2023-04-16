@@ -11,7 +11,6 @@ import Licenses from "./pages/Licenses/Licenses";
 
 function App() {
   const { usuario } = useContext(AutenticacionContext);
-  console.log(usuario);
   return (
     <>
       {/* <Box sx={principal}>

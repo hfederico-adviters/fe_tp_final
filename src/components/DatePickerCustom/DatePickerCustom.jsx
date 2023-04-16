@@ -4,12 +4,8 @@ import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import MaskInputDate from "../MaskInputDate/MaskInputDate";
 import { days, months } from "./contants/date";
-const DatePickerCustom = ({
-  label,
-  input: { value, onChange },
-  meta,
-  ...rest
-}) => {
+const DatePickerCustom = ({ label, input, meta, date, ...rest }) => {
+  const value = date ? date : input?.value;
   const [open, setOpen] = useState(false);
   const fecha = new Date(value);
   const day = fecha.getDate();
@@ -29,7 +25,8 @@ const DatePickerCustom = ({
             id="dateCustomer"
             isOpen={open}
             onChange={(date) => {
-              onChange(date);
+              console.log(date);
+              input?.onChange(date);
               setOpen(false);
             }}
             value={value}

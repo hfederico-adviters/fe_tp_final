@@ -22,9 +22,11 @@ const ListLicense = ({
   onClickCard,
   onClickButtonAccept,
   onClickButtonDecline,
+  withCircleColor = true,
+  sx = {},
 }) => {
   return (
-    <List sx={listListLicenses}>
+    <List sx={{ ...listListLicenses, ...sx }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -36,7 +38,7 @@ const ListLicense = ({
               25/09 - 31/09
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <CircleColor color="red" />
+              {withCircleColor && <CircleColor color="red" />}
               <Typography sx={textThirdListLicenses}>vacaciones</Typography>
             </Box>
           </Box>

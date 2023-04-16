@@ -1,38 +1,44 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import { Box, Chip, Grid, Typography } from "@mui/material";
+import { Box, Chip, Divider, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-function AvatarLicence({ nameUser, state }) {
+import { boxAvatar, boxChip, chip, container, typografy } from "./style";
+import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
+function AvatarLicense({ nameUser, state, currentBalance, onClose }) {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        height: 100,
-      }}
-    >
-      <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
+    <Box className="container" sx={container}>
+      <Box sx={boxAvatar}>
         <Avatar alt="Nombre user" src="/static/images/avatar/2.jpg" />
-        <Typography variant="subtitle2" sx={{ ml: 1 }}>
+        <Typography variant="subtitle2" sx={typografy}>
           {nameUser}
         </Typography>
       </Box>
-      <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
-        <Typography variant="subtitle2">Estado</Typography>
-        <Chip
-          size="small"
+      {currentBalance && (
+        <Box sx={boxAvatar}>
+          <Typography variant="caption" sx={typografy}>
+            Balance actual:
+          </Typography>
+          <Typography variant="h5" sx={typografy}>
+            {`${currentBalance} dias`}
+          </Typography>
+        </Box>
+      )}
+      {onClose && (
+        <HighlightOffTwoToneIcon
           sx={{
-            backgroundColor: "#05CB3C",
-            color: "white",
-            borderRadius: "16px",
+            color: "#FF8B8B",
+            cursor: "pointer",
           }}
-          label={state}
+          onClick={onClose}
         />
-      </Box>
-    </Container>
+      )}
+      {state && (
+        <Box sx={boxChip}>
+          <Typography variant="subtitle2">Estado</Typography>
+          <Chip size="small" sx={chip} label={state} />
+        </Box>
+      )}
+    </Box>
   );
 }
-export default AvatarLicence;
+export default AvatarLicense;

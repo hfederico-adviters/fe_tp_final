@@ -20,12 +20,13 @@ export const fontConfig = {
   h4: {
     fontStyle: "normal",
     fontWeight: 600,
-    fontSize: 16,
+    fontSize: 24,
   },
+
   h6: {
     fontStyle: "normal",
     fontWeight: 600,
-    fontSize: 10,
+    fontSize: 18,
   },
   subtitle1: {
     fontStyle: "normal",
@@ -57,6 +58,6 @@ export const fontConfig = {
   caption: {
     fontStyle: "normal",
     fontWeight: 400,
-    fontSize: 10,
+    fontSize: 14,
   },
 };
