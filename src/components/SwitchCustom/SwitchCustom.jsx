@@ -10,7 +10,7 @@ const SwitchCustom = ({ label,
 }) =>{
   return (
     <FormGroup>
-   <FormControlLabel control={<Switch checked={value} onChange={onChange} />} /> 
+   <FormControlLabel control={<Switch checked={value} onChange={onChange} />}label={"Administrador"} /> 
 
   </FormGroup>
   
