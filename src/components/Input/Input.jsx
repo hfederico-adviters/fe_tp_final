@@ -41,7 +41,9 @@ export const InputPassword = ({
         label={label}
         value={value}
         onChange={onChange}
-        helperText={!!meta?.touched && meta?.error}
+
+        helperText={meta?.touched && meta?.error}
+
         variant="outlined"
         size="small"
         type="password"
@@ -60,13 +62,20 @@ export const InputNumber = ({
       <TextField
         fullWidth
         type="number"
-        error={!!meta?.error}
+
+        error={!!meta?.touched && !!meta.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta?.error}
+        helperText={meta?.touched && meta.error}
+
         variant="outlined"
         size="small"
+        InputProps={{
+          inputProps: {
+            style: { textAlign: "right" },
+          },
+        }}
       />
     </Box>
   );
@@ -82,11 +91,13 @@ export const InputDate = ({
       <TextField
         fullWidth
         type="date"
-        error={!!meta?.error}
+
+        error={!!meta?.touched && !!meta?.error}
         label={label}
         value={value}
         onChange={onChange}
-        helperText={meta?.error}
+        helperText={meta?.touched && meta?.error}
+
         variant="outlined"
         size="small"
         focused

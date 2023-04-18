@@ -21,6 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {usuario ? (
+
             <>
               <Route path="/" element={<Dashboard />} />
               <Route path="/licenses" element={<Licenses />} />
@@ -34,6 +35,7 @@ function App() {
                 element={<h1>Error, ruta no especificada ☹️</h1>}
               />
             </>
+
           ) : (
             <Route path="/" element={<Login />} />
           )}
