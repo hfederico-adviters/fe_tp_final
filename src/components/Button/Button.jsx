@@ -1,10 +1,16 @@
 import { Button } from "@mui/material";
 
-const Boton = ({name, onclick}) => {
+const Boton = ({ name, onclick, color = "primary", sx = {} }) => {
   return (
-    <Button sx={{background: "blue", color: "#fafafa",}} variant="contained" onClick={onclick}>{name}
+    <Button
+      sx={{ color: "#fafafa", ...sx }}
+      variant="contained"
+      onClick={onclick}
+      color={color}
+    >
+      {name}
     </Button>
-  )
-}
+  );
+};
 
-export default Boton
+export default Boton;

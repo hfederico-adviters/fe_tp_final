@@ -12,10 +12,12 @@ import Boton from "../../components/Button/Button";
 
 import { initialValues } from "./constants";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
+
 import File from "../../components/File/File";
 import { postAddUser } from "../../services/usuariosServices";
 import SwitchCustom from "../../components/SwitchCustom/SwitchCustom";
 import { strings } from "../../assets/strings/Strings";
+
 const User = () => {
   const arrayDeOption = [
     { value: "Pepito", label: "fede" },
@@ -49,6 +51,7 @@ const User = () => {
             return error;
           }}
           render={({ handleSubmit, values }) => (
+
             console.log(values),
             (
               <Box sx={{ margin: "2rem" }}>
@@ -269,6 +272,7 @@ const User = () => {
                       label={strings.pageUser.formulario.administrator.label}
                     />
                   </Grid>
+
                 </Grid>
 
                 <Box

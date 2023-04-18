@@ -1,26 +1,32 @@
 export const paletteConfig = {
   primary: {
-    main: '#5CB8DF',
+    main: "#5CB8DF",
   },
   secondary: {
-    main: '#ACEDFF',
+    main: "#1976D2",
   },
   tertiary: {
-    main: '#6F8AB7',
+    main: "#63ECB2",
   },
   warning: {
-    main: 'rgb(255, 243, 0)',
+    main: "rgb(255, 243, 0)",
+  },
+  Notification: {
+    main: "#F00",
   },
   textPrimary: {
-    main: '#615D6C',
+    main: "#615D6C",
   },
   textSecondary: {
-    main: '#FFF',
+    main: "#FFF",
   },
   textTertiary: {
-    main: '#6F8AB7',
+    main: "#6F8AB7",
   },
   textWarning: {
-    main: '#F00',
+    main: "#F00",
+  },
+  error: {
+    main: "#FFA1A1",
   },
 };
