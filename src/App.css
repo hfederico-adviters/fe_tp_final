@@ -55,6 +55,9 @@ input[type="number"] {
 .class1:hover .react-picker-date__input {
   visibility: visible;
 }
+.class1 input {
+  visibility: hidden !important;
+}
 .react-picker-date__popup {
   position: absolute;
   top: 100%;

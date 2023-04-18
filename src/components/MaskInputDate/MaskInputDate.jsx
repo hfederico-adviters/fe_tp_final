@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-const MaskInputDate = ({ month, day, dayDescription, onClick, children }) => {
+const MaskInputDate = ({ month, day, dayDescription, onClick }) => {
   return (
     <Box
       sx={{
@@ -43,7 +43,6 @@ const MaskInputDate = ({ month, day, dayDescription, onClick, children }) => {
           {dayDescription}
         </Typography>
       </Box>
-      {children}
     </Box>
   );
 };

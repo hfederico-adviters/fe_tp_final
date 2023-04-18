@@ -39,6 +39,7 @@ const Licenses = () => {
             initialValues={{ description: "Viaje al centro de la Tierra." }}
             render={({ handleSubmit, values }) => (
               <Box>
+                {console.log(values)}
                 <Grid container>
                   <AvatarLicense
                     nameUser="Federico"

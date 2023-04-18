@@ -14,10 +14,10 @@ const LicenceRangeDate = ({
       {isFormulario ? (
         <Box sx={{ display: "flex", flexDirection: "row" }}>
           <Box sx={{ m: 1 }}>
-            <Field name="Inicio" component={DatePickerCustom} label="Desde" />
+            <Field name="inicio" component={DatePickerCustom} label="Desde" />
           </Box>
           <Box sx={{ m: 1 }}>
-            <Field name="Fin" component={DatePickerCustom} label="Hasta" />
+            <Field name="fin" component={DatePickerCustom} label="Hasta" />
           </Box>
         </Box>
       ) : (
