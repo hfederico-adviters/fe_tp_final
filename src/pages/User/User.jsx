@@ -9,12 +9,9 @@ import {
 } from "../../components/Input/Input";
 import Layout from "../../components/Layout/Layout";
 import Boton from "../../components/Button/Button";
-
-import { initialValues } from "./constants";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
-
 import File from "../../components/File/File";
-import { getUserDelete, postAddUser } from "../../services/usuariosServices";
+import { postAddUser } from "../../services/usuariosServices";
 import SwitchCustom from "../../components/SwitchCustom/SwitchCustom";
 import { strings } from "../../assets/strings/Strings";
 import { useParams } from "react-router";
@@ -23,21 +20,28 @@ import { useUser, useUserDetails } from "../../hook/userHook";
 const User = () => {
   const { idUser } = useParams();
   const { data, isLoading } = useUser();
-  const { data: dataUser, isLoading: isLoadingUser } = useUserDetails(idUser);
+  const {
+    data: dataUser,
+    isLoading: isLoadingUser,
+    isError,
+  } = useUserDetails(idUser);
   if (isLoading || isLoadingUser) {
     return <Typography>Cargandooo</Typography>;
+  }
+  if (isError) {
+    return <Typography>error</Typography>;
   }
   console.log(dataUser);
   return (
     <Layout title={"Gestión de licencias"}>
       <Card sx={{ width: "70%", border: "0.2px solid #797979" }}>
         <Box sx={{ fontSize: "2rem", color: "#FF7B7B", margin: "2rem" }}>
-          Mi Perfil
+          {Number(idUser) > 0 ? "Mi Perfil" : "Crear usuario"}
         </Box>
         <Form
           onSubmit={(values) => {
             const body = { ...values, image: "", administration: true };
-            getUserDelete(values.id);
+            postAddUser(values);
           }}
           initialValues={dataUser}
           validate={(value) => {

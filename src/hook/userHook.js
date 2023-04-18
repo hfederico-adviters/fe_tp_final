@@ -20,7 +20,9 @@ export const useUserDetails = (id) => {
   const { data, isLoading, isError, error } = useQuery(
     ["useUserDetails"],
     async () => {
-      return getUserDetails(id);
+      if (Number(id) > 0) {
+        return getUserDetails(id);
+      }
     }
   );
   return {
