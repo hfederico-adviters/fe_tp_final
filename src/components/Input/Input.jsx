@@ -10,12 +10,11 @@ export const InputText = ({
     <Box>
       <TextField
         fullWidth
-       error={!!meta?.touched && !!meta?.error}
+        error={!!meta?.touched && !!meta?.error}
         label={label}
         value={value}
-        
         onChange={onChange}
-       helperText={meta?.touched && meta?.error}
+        helperText={meta?.touched && meta?.error}
         variant="outlined"
         size="small"
       />
@@ -33,7 +32,7 @@ export const InputPassword = ({
     <Box>
       <TextField
         fullWidth
-       error={!!meta?.touched && !!meta?.error}
+        error={!!meta?.touched && !!meta?.error}
         label={label}
         value={value}
         onChange={onChange}
@@ -64,6 +63,11 @@ export const InputNumber = ({
         helperText={meta?.touched && meta.error}
         variant="outlined"
         size="small"
+        InputProps={{
+          inputProps: {
+            style: { textAlign: "right" },
+          },
+        }}
       />
     </Box>
   );

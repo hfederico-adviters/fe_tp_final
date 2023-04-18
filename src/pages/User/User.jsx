@@ -59,7 +59,7 @@ const User = () => {
                       <img src={imagen} alt="imagen"  style={{ width: "8rem" }} />
                       <input accept="image/*" type="file" />                
                     </> */}
-                    <File name={strings.pageUser.formulario.file.name} component={File}/>
+                    <Field name={strings.pageUser.formulario.file.name} component={File}/>
                   </Grid>
 
                   <Grid item xs={4}>
@@ -221,6 +221,15 @@ const User = () => {
 
                   <Grid item xs={4}>
                   <Field
+                    name={strings.pageUser.formulario.studydays.name}
+                    component={InputNumber}
+                    label={strings.pageUser.formulario.studydays.label}
+                    validate={validar}
+                  />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                  <Field
                     name={strings.pageUser.formulario.administrator.name}
                     component={SwitchCustom}
                     type="checkbox"
@@ -229,7 +238,7 @@ const User = () => {
                   />
                   </Grid>
                 
-                      
+                    
 
                 
               </Grid>
