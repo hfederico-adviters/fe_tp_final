@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../../images/user/defaultimg.png";
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 const File = ({ input: { value, onChange, onBlur } }) => {
   var reader = new FileReader();
   if (value) {
@@ -11,16 +11,10 @@ const File = ({ input: { value, onChange, onBlur } }) => {
     reader.readAsDataURL(value);
   }
 
-  // if(img !== image){
-  //   <style>
-
-  //   </style>
-  // }
-
   return (
     <>
-      <Button for="text">
-        <label for="text" style={{ cursor: "pointer" }}>
+      <Button>
+        <label htmlFor="text" style={{ cursor: "pointer" }}>
           {value ? "Cambiar imagen" : "Cargar imagen"}
           <img id="output" src={image} style={{ width: "7rem" }} />
         </label>
