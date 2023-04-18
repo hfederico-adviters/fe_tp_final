@@ -19,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {usuario ? (
+
             <>
               <Route path="/" element={<Dashboard />} />
               <Route path="/licenses" element={<Licenses />} />
@@ -26,6 +27,7 @@ function App() {
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/User" element={<User />} />
             </>
+
           ) : (
             <Route path="/" element={<Login />} />
           )}

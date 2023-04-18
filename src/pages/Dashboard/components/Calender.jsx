@@ -4,6 +4,7 @@ import { containerCalender } from "../style";
 
 const Calender = ({ data }) => {
   return (
+
     <Box sx={containerCalender}>
       <>
         <img src={images.dashboard.calender} />
@@ -15,6 +16,7 @@ const Calender = ({ data }) => {
             variant="h4"
           >{`${date} (${description})`}</Typography>
         ))}
+
       </Box>
     </Box>
   );
