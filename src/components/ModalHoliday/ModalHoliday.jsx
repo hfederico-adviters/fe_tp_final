@@ -12,9 +12,9 @@ import Typography from '@mui/material/Typography';
 import DatePicker from '@mui/lab/DatePicker';
 import { TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { InputDate } from '../Input/Input';
-import { Field, Form } from "react-final-form";
-
+import { useState } from 'react';
+import contenedorHoliday from '../../components/ListF/ListF/contenedorHoliday'
+ 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -24,6 +24,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
+
+
+
 
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
@@ -57,6 +60,8 @@ BootstrapDialogTitle.propTypes = {
 export default function CustomizedDialogs() {
   const [open, setOpen] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState(null);
+  const [dateValue, setDateValue] = React.useState("");
+const [motivoValue, setMotivoValue] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -70,6 +75,21 @@ export default function CustomizedDialogs() {
     setSelectedDate(date);
   };
 
+  const handleConfirm = () => {
+    //Creo un objeto con los vlaores de los estados 
+
+    const data = {date: dateValue, motivo: motivoValue};
+
+    //coloca el objeto data con su info en el container
+
+    contenedorHoliday.push(data)
+
+    //Cierro todo
+
+handleClose();
+  };
+
+
   return (
     <div>
       <Button variant="outlined" sx={{bgcolor: 'green', color:'white'}} onClick={handleClickOpen}>
@@ -82,12 +102,33 @@ export default function CustomizedDialogs() {
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
           <h1>Crear nuevo Feriado</h1>
-         <Grid item xs={4}>
+          <Grid container spacing={2}>
+         <Grid item xs={6}>
                   <TextField
                     name="date"
                     label="Fecha"
                     type='date'
+                    InputLabelProps={{
+                        shrink: true,
+                        children: 'Fecha',
+                      }}
+                      fullWidth
+                      onChange={(e) => setDateValue(e.target.value)}
                   />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField 
+                    name="motivo"
+                    label="Motivo"
+                    type='text'
+                    InputLabelProps={{
+                        shrink: true,
+                        children: 'text',
+                      }}
+                      fullWidth
+                      onChange={(e) => setMotivoValue(e.target.value)}
+                  />
+                </Grid>
                 </Grid>
         </BootstrapDialogTitle>
         <DialogContent dividers>
@@ -102,7 +143,7 @@ export default function CustomizedDialogs() {
           <Button autoFocus onClick={handleClose}>
             Cancelar
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleConfirm} color="primary">
             Confirmar
           </Button>
         </DialogActions>

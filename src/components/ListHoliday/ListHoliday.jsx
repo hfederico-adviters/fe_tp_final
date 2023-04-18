@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import {list, textPrimary, textSecondary, dateStyle, listItemBlue, listItemGreen, listItemRed } from "../ListCustom/style";
 import EditIcon from '@mui/icons-material/Edit';
 import ListItemIcon from "@mui/material/ListItemIcon";
-// import {dateStyle} from '../../components/ListHoliday/style';
+//import {dateStyle} from '../../components/ListHoliday/style';
 
 
 const VacationDetails = () => {

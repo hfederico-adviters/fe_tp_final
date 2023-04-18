@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import "./App.css";
 import { principal } from "./style";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -9,13 +8,11 @@ import User from "./pages/User/User";
 import { useContext } from "react";
 import { AutenticacionContext } from "./context/AutenticacionProvider";
 import Licenses from "./pages/Licenses/Licenses";
-import EnabledUser from "./pages/EnabledUser/EnabledUser";
-import ListDani from "./components/ListDani/ListDani";
 import CalendarH from "./pages/CalendarH/CalendarH";
+import EnabledUser from "./pages/EnabledUser/EnabledUser";
 
 function App() {
   const { usuario } = useContext(AutenticacionContext);
-  console.log(usuario);
   return (
     <>
       {/* <Box sx={principal}>
@@ -24,20 +21,20 @@ function App() {
       <BrowserRouter>
         <Routes>
           {usuario ? (
-            <Route path="/" element={<User />} />
+            <>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/licenses" element={<Licenses />} />
+              <Route path="/loader" element={<Loader />} />
+              <Route path="/Dashboard" element={<Dashboard />} />
+              <Route path="/User" element={<User />} />
+              <Route path="/CalendarH" element={<CalendarH/>} />
+              <Route path="/EnabledUser" element={<EnabledUser/>}/>
+              <Route path="*" element={<h1>Error, ruta no especificada ☹️</h1>}/>
+            </>
           ) : (
             <Route path="/" element={<Login />} />
           )}
-
-          <Route path="/Loader" element={<Loader />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/User" element={<User/>} />
-          <Route path="/Licenses" element={<Licenses/>}/>     
-          <Route path="/EnabledUser" element={<EnabledUser/>}/>
-          <Route path="/ListDani" element={<ListDani/>}/>
-          <Route path="/CalendarH" element={<CalendarH/>}/>
-          <Route path="*" element={<h1>Error, ruta no especificada</h1>}></Route>
-          </Routes>
+        </Routes>
       </BrowserRouter>
     </>
   );

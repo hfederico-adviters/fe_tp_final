@@ -15,8 +15,7 @@ const EnabledUser = () => {
                     </Box>
 
                     <Grid item xs={3} sx={{ border: "1px solid black" }}>
-                        <Box sx={boxBody}>
-                        </Box>
+                    
                     </Grid>
                 </Grid>
 

@@ -1,5 +1,4 @@
 export const fontConfig = {
-  fontFamily: "Roboto",
   h1: {
     fontStyle: "normal",
     fontWeight: 700,
@@ -21,12 +20,13 @@ export const fontConfig = {
   h4: {
     fontStyle: "normal",
     fontWeight: 600,
-    fontSize: 16,
+    fontSize: 24,
   },
+
   h6: {
     fontStyle: "normal",
     fontWeight: 600,
-    fontSize: 10,
+    fontSize: 18,
   },
   subtitle1: {
     fontStyle: "normal",
@@ -50,14 +50,14 @@ export const fontConfig = {
     fontSize: 12,
   },
   body2: {
+    color: "rgba(0, 0, 0, 0.87)",
     fontStyle: "normal",
-    fontWeight: 800,
-    fontSize: 12,
-    color: "#4A4B4B",
+    fontWeight: 600,
+    fontSize: 14,
   },
   caption: {
     fontStyle: "normal",
     fontWeight: 400,
-    fontSize: 10,
+    fontSize: 14,
   },
 };
