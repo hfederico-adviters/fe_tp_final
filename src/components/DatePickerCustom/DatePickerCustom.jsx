@@ -1,0 +1,39 @@
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { subDays, addDays } from "date-fns";
+import MaskInputDate from "../MaskInputDate/MaskInputDate";
+import { days, months } from "./contants/date";
+const DatePickerCustom = ({ label, input, meta, date, ...rest }) => {
+  const value = date ? date : input?.value;
+  const fecha = new Date(value);
+  const day = fecha.getDate();
+  const dayDescription = days[fecha.getDay()];
+  const month = months[fecha.getDay()];
+
+  return (
+    <>
+      <div className="class1">
+        <label for={label}>
+          <MaskInputDate
+            month={month ? month : label}
+            day={day ? day : ""}
+            dayDescription={dayDescription ? dayDescription : ""}
+          />
+        </label>
+        <DatePicker
+          id={label}
+          onChange={(date) => {
+            input?.onChange(date);
+          }}
+          startDate={value}
+          minDate={new Date()}
+          value={value}
+          highlightDates={[subDays(new Date(), 7), addDays(new Date(), 7)]}
+          {...rest}
+        />
+      </div>
+    </>
+  );
+};
+export default DatePickerCustom;

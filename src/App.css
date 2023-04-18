@@ -37,8 +37,41 @@
   }
 }
 
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-   -webkit-appearance: none; margin: 0;
-   } input[type=number] {
-   -moz-appearance:textfield; 
-  }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.class1 {
+  display: inline-block;
+  position: relative;
+}
+.class1 .react-date-picker__wrapper {
+  visibility: hidden !important;
+}
+.class1:hover .react-picker-date__input {
+  visibility: visible;
+}
+.class1 input {
+  visibility: hidden !important;
+}
+.react-picker-date__popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.react-picker-date__popup__header {
+  background-color: #f5f5f5;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.react-picker-date__popup__content {
+  padding: 10px;
+}
