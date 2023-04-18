@@ -4,10 +4,18 @@ import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
+import {
+  list,
+  textPrimary,
+  textSecondary,
+  dateStyle,
+  listItemBlue,
+  listItemGreen,
+  listItemRed,
+} from "../ListCustom/style";
 import EditIcon from "@mui/icons-material/Edit";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import { dateStyle, list, listItemBlue, textPrimary } from "./style";
-// import {dateStyle} from '../../components/ListHoliday/style';
+//import {dateStyle} from '../../components/ListHoliday/style';
 
 const VacationDetails = () => {
   return (
@@ -16,12 +24,17 @@ const VacationDetails = () => {
         <ListItemText
           primary={
             <React.Fragment>
-              <Typography variant="body2">Dia de estudio</Typography>
-              <Typography sx={textPrimary}>Dias Totales: 1</Typography>
+              <Typography sx={textPrimary}>Dia de estudio</Typography>
+              <Typography variant="subtitle2" sx={{ color: "#888" }}>
+                Dias Totales: 1
+              </Typography>
             </React.Fragment>
           }
-          secondary={<Typography>Licencia Medica</Typography>}
+          secondary={
+            <Typography sx={textSecondary}>Licencia Medica</Typography>
+          }
         />
+
         <ListItemText
           primary={<Typography sx={textPrimary}>Dias Tomados: 1</Typography>}
           secondary={<Typography sx={dateStyle}>12/01 - 13/01</Typography>}
@@ -31,6 +44,63 @@ const VacationDetails = () => {
         </ListItemIcon>
       </ListItem>
       <Divider />
+      <ListItem sx={listItemGreen}>
+        <ListItemText
+          primary={
+            <React.Fragment>
+              <Typography sx={textPrimary}>Periodo 2022</Typography>
+              <Typography variant="subtitle2" sx={{ color: "#888" }}>
+                Dias Totales: 21
+              </Typography>
+            </React.Fragment>
+          }
+          secondary={<Typography sx={textSecondary}>Vacaciones</Typography>}
+        />
+        <ListItemText
+          primary={<Typography sx={textPrimary}>Dias Tomados: 1</Typography>}
+        />
+        <ListItemIcon>
+          <EditIcon />
+        </ListItemIcon>
+      </ListItem>
+      <Divider />
+      <ListItem sx={listItemRed}>
+        <ListItemText
+          primary={
+            <React.Fragment>
+              <Typography sx={textPrimary}>Periodo 2021</Typography>
+              <Typography variant="subtitle2" sx={{ color: "#888" }}>
+                Dias Totales: 10
+              </Typography>
+            </React.Fragment>
+          }
+          secondary={<Typography sx={textSecondary}>Vacaciones</Typography>}
+        />
+        <ListItemText
+          primary={<Typography sx={textPrimary}>Dias Tomados: 3</Typography>}
+        />
+        <ListItemIcon>
+          <EditIcon />
+        </ListItemIcon>
+      </ListItem>
+      <Divider />
+      <ListItem sx={listItemBlue}>
+        <ListItemText
+          primary={
+            <React.Fragment>
+              <Typography sx={textPrimary}>Dia de estudio</Typography>
+              <Typography variant="subtitle2" sx={{ color: "#888" }}>
+                Dias Totales: 2
+              </Typography>
+            </React.Fragment>
+          }
+          secondary={<Typography sx={textSecondary}>Vacaciones</Typography>}
+        />
+        <ListItemText
+          primary={<Typography sx={textPrimary}>Dias Tomados: 3</Typography>}
+          secondary={<Typography sx={dateStyle}>19/10 - 20/10</Typography>}
+        />
+      </ListItem>
     </List>
   );
 };

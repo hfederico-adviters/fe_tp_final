@@ -8,6 +8,8 @@ import User from "./pages/User/User";
 import { useContext } from "react";
 import { AutenticacionContext } from "./context/AutenticacionProvider";
 import Licenses from "./pages/Licenses/Licenses";
+import CalendarH from "./pages/CalendarH/CalendarH";
+import EnabledUser from "./pages/EnabledUser/EnabledUser";
 
 function App() {
   const { usuario } = useContext(AutenticacionContext);
@@ -25,6 +27,12 @@ function App() {
               <Route path="/loader" element={<Loader />} />
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/User" element={<User />} />
+              <Route path="/CalendarH" element={<CalendarH />} />
+              <Route path="/EnabledUser" element={<EnabledUser />} />
+              <Route
+                path="*"
+                element={<h1>Error, ruta no especificada ☹️</h1>}
+              />
             </>
           ) : (
             <Route path="/" element={<Login />} />
