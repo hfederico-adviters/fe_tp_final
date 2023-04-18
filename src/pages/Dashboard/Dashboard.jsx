@@ -1,6 +1,6 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Layout from "../../components/Layout/Layout";
-import { boxBody, boxContainer, card, typografy } from "./style";
+import { boxContainer } from "./style";
 import Calender from "./components/Calender";
 import { useState } from "react";
 import LicenseDetails from "./components/LicenseDetails";
@@ -16,7 +16,7 @@ const Dashboard = () => {
     isError: isErrorProvince,
   } = useProvince();
 
-  const rol = "administrato";
+  const rol = "administrator";
   const [showDatailsLicenses, setShowDetailsLicenses] = useState({
     open: false,
     userId: null,
