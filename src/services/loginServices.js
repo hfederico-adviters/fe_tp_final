@@ -1,4 +1,4 @@
-import { fetchContent } from "../utils/fetchCustom";
+import { fetchContent } from "../utils/fetchContent";
 export const postLogin = async (body, setUsuario) => {
   try {
     const response = await fetchContent("/login", { body, method: "POST" });
