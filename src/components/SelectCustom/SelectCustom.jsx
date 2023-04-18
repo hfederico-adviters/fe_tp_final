@@ -14,6 +14,7 @@ const SelectCustom = ({
       <Select
         value={value}
         label={label}
+        
         onChange={onChange}
         error={!!meta.error}
         helpertext={meta.error}
