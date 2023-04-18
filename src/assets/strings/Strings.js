@@ -21,8 +21,11 @@ export const strings = {
       city: { name: "city", label: "Ciudad" },
       province: { name: "province", label: "Provincia" },
       country: { name: "country", label: "País" },
-      holidays: { name: "holidays", label: "Días Vacaciones" },
-      studydays: { name: "studydays", label: "Días Estudio" },
+      availableVacationsDays: {
+        name: "availableVacationsDays",
+        label: "Días Vacaciones",
+      },
+      availableStudyDays: { name: "availableStudyDays", label: "Días Estudio" },
       administrator: { name: "administrator", label: "Administrador" },
       button: { name: "Guardar" },
       file: { name: "file" },

@@ -44,63 +44,6 @@ const VacationDetails = () => {
         </ListItemIcon>
       </ListItem>
       <Divider />
-      <ListItem sx={listItemGreen}>
-        <ListItemText
-          primary={
-            <React.Fragment>
-              <Typography sx={textPrimary}>Periodo 2022</Typography>
-              <Typography variant="subtitle2" sx={{ color: "#888" }}>
-                Dias Totales: 21
-              </Typography>
-            </React.Fragment>
-          }
-          secondary={<Typography sx={textSecondary}>Vacaciones</Typography>}
-        />
-        <ListItemText
-          primary={<Typography sx={textPrimary}>Dias Tomados: 1</Typography>}
-        />
-        <ListItemIcon>
-          <EditIcon />
-        </ListItemIcon>
-      </ListItem>
-      <Divider />
-      <ListItem sx={listItemRed}>
-        <ListItemText
-          primary={
-            <React.Fragment>
-              <Typography sx={textPrimary}>Periodo 2021</Typography>
-              <Typography variant="subtitle2" sx={{ color: "#888" }}>
-                Dias Totales: 10
-              </Typography>
-            </React.Fragment>
-          }
-          secondary={<Typography sx={textSecondary}>Vacaciones</Typography>}
-        />
-        <ListItemText
-          primary={<Typography sx={textPrimary}>Dias Tomados: 3</Typography>}
-        />
-        <ListItemIcon>
-          <EditIcon />
-        </ListItemIcon>
-      </ListItem>
-      <Divider />
-      <ListItem sx={listItemBlue}>
-        <ListItemText
-          primary={
-            <React.Fragment>
-              <Typography sx={textPrimary}>Dia de estudio</Typography>
-              <Typography variant="subtitle2" sx={{ color: "#888" }}>
-                Dias Totales: 2
-              </Typography>
-            </React.Fragment>
-          }
-          secondary={<Typography sx={textSecondary}>Vacaciones</Typography>}
-        />
-        <ListItemText
-          primary={<Typography sx={textPrimary}>Dias Tomados: 3</Typography>}
-          secondary={<Typography sx={dateStyle}>19/10 - 20/10</Typography>}
-        />
-      </ListItem>
     </List>
   );
 };
