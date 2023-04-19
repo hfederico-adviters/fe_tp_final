@@ -5,7 +5,7 @@ export const strings = {
       lastName: { name: "lastName", label: "Apellido" },
       password: { name: "password", label: "password nuevo" },
       passwordconf: { name: "passwordconf", label: "repetir password" },
-      idUserSupervice: { name: "idUserSupervice", label: "fede" },
+      userSupervicer: { name: "userSupervicer", label: "fede" },
       birthday: { name: "birthday", label: "Fecha Nacimiento" },
       arriveDate: { name: "arriveDate", label: "Fecha Ingreso" },
       dni: { name: "dni", label: "DNI" },

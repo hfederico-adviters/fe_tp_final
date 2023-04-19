@@ -16,7 +16,7 @@ const Dashboard = () => {
     isError: isErrorProvince,
   } = useProvince();
 
-  const rol = "administrator";
+  const rol = "administrato";
   const [showDatailsLicenses, setShowDetailsLicenses] = useState({
     open: false,
     userId: null,

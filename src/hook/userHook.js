@@ -21,7 +21,11 @@ export const useUserDetails = (id) => {
     ["useUserDetails"],
     async () => {
       if (Number(id) > 0) {
-        return getUserDetails(id);
+        const response = await getUserDetails(id);
+        return {
+          ...response,
+          userSupervicer: response?.userSupervicer?.id,
+        };
       }
     }
   );

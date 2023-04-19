@@ -11,7 +11,7 @@ import Layout from "../../components/Layout/Layout";
 import Boton from "../../components/Button/Button";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
 import File from "../../components/File/File";
-import { postAddUser } from "../../services/usuariosServices";
+import { postAddUser, putUser } from "../../services/usuariosServices";
 import SwitchCustom from "../../components/SwitchCustom/SwitchCustom";
 import { strings } from "../../assets/strings/Strings";
 import { useParams } from "react-router";
@@ -19,19 +19,19 @@ import { useUser, useUserDetails } from "../../hook/userHook";
 
 const User = () => {
   const { idUser } = useParams();
-  const { data, isLoading } = useUser();
+
   const {
     data: dataUser,
     isLoading: isLoadingUser,
     isError,
   } = useUserDetails(idUser);
-  if (isLoading || isLoadingUser) {
+  if (isLoadingUser) {
     return <Typography>Cargandooo</Typography>;
   }
   if (isError) {
     return <Typography>error</Typography>;
   }
-  console.log(dataUser);
+  console.log();
   return (
     <Layout title={"Gestión de licencias"}>
       <Card sx={{ width: "70%", border: "0.2px solid #797979" }}>
@@ -41,7 +41,11 @@ const User = () => {
         <Form
           onSubmit={(values) => {
             const body = { ...values, image: "", administration: true };
-            postAddUser(values);
+            if (Number(idUser) === 0) {
+              postAddUser(values);
+            } else {
+              putUser(idUser, values);
+            }
           }}
           initialValues={dataUser}
           validate={(value) => {
@@ -102,7 +106,7 @@ const User = () => {
 
                 <Grid item xs={4}>
                   <Field
-                    name={strings.pageUser.formulario.idUserSupervice.name}
+                    name={strings.pageUser.formulario.userSupervicer.name}
                     component={SelectCustom}
                     options={[{ value: 1, label: "fede" }]}
                     validate={validar}
