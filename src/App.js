@@ -10,6 +10,8 @@ import { AutenticacionContext } from "./context/AutenticacionProvider";
 import CalendarH from "./pages/CalendarH/CalendarH";
 import EnabledUser from "./pages/EnabledUser/EnabledUser";
 import Licenses from "./pages/Licenses/Licenses";
+import { Typography } from "@mui/material";
+import { strings } from "./assets/strings/Strings";
 
 function App() {
   const { usuario } = useContext(AutenticacionContext);
@@ -31,7 +33,11 @@ function App() {
               <Route path="/EnabledUser" element={<EnabledUser />} />
               <Route
                 path="*"
-                element={<h1>Error, ruta no especificada ☹️</h1>}
+                element={
+                  <Typography variant="h1">
+                    {strings.appJs.notFound.label}
+                  </Typography>
+                }
               />
             </>
           ) : (

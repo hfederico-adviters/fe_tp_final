@@ -5,6 +5,7 @@ import { InputText } from "../../components/Input/Input";
 import { Box, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { AutenticacionContext } from "../../context/AutenticacionProvider";
+import { strings } from "../../assets/strings/Strings";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -34,6 +35,7 @@ function Login() {
           <Box marginBottom="50px">
             <InputText
               label="Password"
+              type="password"
               input={{
                 value: password,
                 onChange: (e) => setPassword(e.target.value),
@@ -46,7 +48,7 @@ function Login() {
             type="submit"
             endIcon={<ArrowForwardIcon />}
           >
-            INICIAR
+            {strings.login.start.label}
           </Button>
         </form>
       </div>

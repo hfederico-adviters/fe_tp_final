@@ -16,6 +16,7 @@ import UploadFile from "../../components/UploadFile/UploadFile";
 import Boton from "../../components/Button/Button";
 import AvatarLicense from "../../components/AvatarLicence/Avatarlicence";
 import { strings } from "../../assets/strings/Strings";
+import { convertDateAAAAMMDD } from "../../utils/convertDateAAAAMMDD";
 const Licenses = () => {
   return (
     <Layout title={"Carga de Licencias"}>
@@ -35,12 +36,12 @@ const Licenses = () => {
         >
           <Form
             onSubmit={(values) => {
-              console.log(values);
+              console.log(convertDateAAAAMMDD(values?.inicio));
+              // console.log(new Date(values?.inicio));
             }}
             initialValues={{ description: "Viaje al centro de la Tierra." }}
             render={({ handleSubmit, values }) => (
               <Box>
-                {console.log(values)}
                 <Grid container>
                   <AvatarLicense
                     nameUser="Federico"
@@ -53,13 +54,13 @@ const Licenses = () => {
                       variant="subtitle2"
                       gutterBottom
                       color="text.secondary"
-                      name={strings.pageLicenses.licenseType.name}
-                      label={strings.pageLicenses.licenseType.label}
-                    ></Typography>
+                    >
+                      {strings.pageLicenses.licenseType.label}
+                    </Typography>
                     <Box sx={{ py: 1 }}>
                       <Field
-                        name="licenseId"
-                        label="Licencia"
+                        name={strings.pageLicenses.licenseId.name}
+                        label={strings.pageLicenses.licenseId.label}
                         component={SelectCustom}
                         sx={{ maxWidth: "150px" }}
                         size="large"
@@ -83,9 +84,9 @@ const Licenses = () => {
                       variant="subtitle2"
                       gutterBottom
                       color="text.secondary"
-                      name={strings.pageLicenses.description.name}
-                      label={strings.pageLicenses.description.label}
-                    ></Typography>
+                    >
+                      {strings.pageLicenses.description.label}
+                    </Typography>
                     <Field
                       name="description"
                       component={InputText}
@@ -100,14 +101,18 @@ const Licenses = () => {
                       gutterBottom
                       color="text.secondary"
                       sx={{ ml: 2 }}
-                      name={strings.pageLicenses.approbalBy.name}
-                      label={strings.pageLicenses.approbalBy.label}
-                    ></Typography>
+                    >
+                      {strings.pageLicenses.approbalBy.label}
+                    </Typography>
                     <FooterLicence />
                   </Box>
                 </Grid>
                 <Box sx={{ display: "flex", justifyContent: "end", m: 2 }}>
-                  <Boton name="Solicitar Aprobacion" color={"tertiary"} />
+                  <Boton
+                    name="Solicitar Aprobacion"
+                    onclick={handleSubmit}
+                    color={"tertiary"}
+                  />
                 </Box>
               </Box>
             )}
@@ -115,11 +120,9 @@ const Licenses = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} sx={gridBodyVacation}>
           <Box sx={boxBodyVacation}>
-            <Typography
-              sx={typografyVacation}
-              name={strings.pageLicenses.vacDetails.name}
-              label={strings.pageLicenses.vacDetails.label}
-            ></Typography>
+            <Typography sx={typografyVacation}>
+              {strings.pageLicenses.vacDetails.label}
+            </Typography>
             <VacationDetails />
             <VacationDetails />
           </Box>

@@ -2,7 +2,7 @@ export const initialValues = {
   firstName: "",
   lastName: "",
   password: "",
-  idUserSupervice: "",
+  userSupervicer: "",
   birthday: "",
   arriveDate: "",
   availableVacationsDays: "",

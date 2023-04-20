@@ -5,7 +5,7 @@ export const strings = {
       lastName: { name: "lastName", label: "Apellido" },
       password: { name: "password", label: "password nuevo" },
       passwordconf: { name: "passwordconf", label: "repetir password" },
-      idUserSupervice: { name: "idUserSupervice", label: "fede" },
+      userSupervicer: { name: "userSupervicer", label: "fede" },
       birthday: { name: "birthday", label: "Fecha Nacimiento" },
       arriveDate: { name: "arriveDate", label: "Fecha Ingreso" },
       dni: { name: "dni", label: "DNI" },
@@ -33,9 +33,26 @@ export const strings = {
   },
 
   pageLicenses: {
-    vacDetails: { name: "vacDetails", label: "Detalle de Vacaciones" },
-    description: { name: "description", label: "DESCRIPCIÓN" },
-    licenseType: { name: "licenseType", label: "Tipo de licencia" },
-    approbalBy: { name: "approvalBy", label: "Aprobacion a cargo de:" },
+    vacDetails: { label: "Detalle de Vacaciones" },
+    description: { label: "DESCRIPCIÓN" },
+    licenseType: { label: "Tipo de licencia" },
+    approbalBy: { label: "Aprobacion a cargo de:" },
+    licenseId: { name: "licenseId", label: "Licencia" },
+  },
+
+  appJs: {
+    notFound: { label: "Error, ruta no especificada ☹️" },
+  },
+
+  login: {
+    start: { label: "INICIAR" },
+  },
+
+  calendar: {
+    calendar: { label: "Calendario" },
+  },
+
+  listF: {
+    holidays: { label: "Feriados" },
   },
 };

@@ -7,7 +7,11 @@ export const MenuNavigation = [
   { name: "Home", icon: PollIcon, href: "/" },
   { name: "Cargar licencias", icon: CalendarTodayIcon, href: "/licenses" },
   { name: "Administrar usuarios", icon: GroupsIcon, href: "/EnabledUser" },
-  { name: "Mantenimientos de calendario", icon: CalendarTodayIcon, href: "/" },
+  {
+    name: "Mantenimientos de calendario",
+    icon: CalendarTodayIcon,
+    href: "/CalendarH",
+  },
 ];
 export const MenuNotification = [
   { name: "Nueva aprobacion pendiente", href: "/", icon: DraftsIcon },
