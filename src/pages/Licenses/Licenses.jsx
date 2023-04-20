@@ -15,6 +15,7 @@ import {
 import UploadFile from "../../components/UploadFile/UploadFile";
 import Boton from "../../components/Button/Button";
 import AvatarLicense from "../../components/AvatarLicence/Avatarlicence";
+import { strings } from "../../assets/strings/Strings";
 const Licenses = () => {
   return (
     <Layout title={"Carga de Licencias"}>
@@ -52,9 +53,9 @@ const Licenses = () => {
                       variant="subtitle2"
                       gutterBottom
                       color="text.secondary"
-                    >
-                      Tipo de licencia
-                    </Typography>
+                      name={strings.pageLicenses.licenseType.name}
+                      label={strings.pageLicenses.licenseType.label}
+                    ></Typography>
                     <Box sx={{ py: 1 }}>
                       <Field
                         name="licenseId"
@@ -82,9 +83,9 @@ const Licenses = () => {
                       variant="subtitle2"
                       gutterBottom
                       color="text.secondary"
-                    >
-                      DESCRIPCIÓN
-                    </Typography>
+                      name={strings.pageLicenses.description.name}
+                      label={strings.pageLicenses.description.label}
+                    ></Typography>
                     <Field
                       name="description"
                       component={InputText}
@@ -99,9 +100,9 @@ const Licenses = () => {
                       gutterBottom
                       color="text.secondary"
                       sx={{ ml: 2 }}
-                    >
-                      Aprobacion a cargo de:
-                    </Typography>
+                      name={strings.pageLicenses.approbalBy.name}
+                      label={strings.pageLicenses.approbalBy.label}
+                    ></Typography>
                     <FooterLicence />
                   </Box>
                 </Grid>
@@ -114,9 +115,11 @@ const Licenses = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} sx={gridBodyVacation}>
           <Box sx={boxBodyVacation}>
-            <Typography sx={typografyVacation}>
-              Detalle de Vacaciones
-            </Typography>
+            <Typography
+              sx={typografyVacation}
+              name={strings.pageLicenses.vacDetails.name}
+              label={strings.pageLicenses.vacDetails.label}
+            ></Typography>
             <VacationDetails />
             <VacationDetails />
           </Box>

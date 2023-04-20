@@ -31,4 +31,11 @@ export const strings = {
       file: { name: "file" },
     },
   },
+
+  pageLicenses: {
+    vacDetails: { name: "vacDetails", label: "Detalle de Vacaciones" },
+    description: { name: "description", label: "DESCRIPCIÓN" },
+    licenseType: { name: "licenseType", label: "Tipo de licencia" },
+    approbalBy: { name: "approvalBy", label: "Aprobacion a cargo de:" },
+  },
 };
