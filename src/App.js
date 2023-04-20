@@ -29,6 +29,7 @@ function App() {
               <Route path="/User" element={<User />} />
               <Route path="/CalendarH" element={<CalendarH/>} />
               <Route path="/EnabledUser" element={<EnabledUser/>}/>
+              {/* <Route path="/CalendarJo" element={<CalendarJo/>}/> */}
               <Route path="*" element={<h1>Error, ruta no especificada ☹️</h1>}/>
             </>
           ) : (
