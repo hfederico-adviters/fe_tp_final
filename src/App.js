@@ -15,12 +15,9 @@ function App() {
   const { usuario } = useContext(AutenticacionContext);
   return (
     <>
-      {/* <Box sx={principal}>
-        <Dashboard />
-      </Box> */}
       <BrowserRouter>
         <Routes>
-          {usuario ? (
+          {usuario?.usuario ? (
             <>
               <Route path="/" element={<Dashboard />} />
               <Route path="/licenses" element={<Licenses />} />
@@ -29,13 +26,15 @@ function App() {
               <Route path="/User?/:idUser" element={<User />} />
               <Route path="/CalendarH" element={<CalendarH />} />
               <Route path="/EnabledUser" element={<EnabledUser />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Login />} />
               <Route
                 path="*"
                 element={<h1>Error, ruta no especificada ☹️</h1>}
               />
             </>
-          ) : (
-            <Route path="/" element={<Login />} />
           )}
         </Routes>
       </BrowserRouter>

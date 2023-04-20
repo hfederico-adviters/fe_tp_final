@@ -13,6 +13,7 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     localStorage.setItem("user", "usuario");
+    localStorage.setItem("userId", "1");
     setUsuario({ usuario: "mathias", id: 1 });
     //con esta funcion valido los datos que me ingresan en el login
   };

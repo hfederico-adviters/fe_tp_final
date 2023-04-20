@@ -10,7 +10,6 @@ const DatePickerCustom = ({ label, input, meta, date, ...rest }) => {
   const day = fecha.getDate();
   const dayDescription = days[fecha.getDay()];
   const month = months[fecha.getMonth() + 1];
-
   return (
     <>
       <div className="class1">
@@ -28,7 +27,7 @@ const DatePickerCustom = ({ label, input, meta, date, ...rest }) => {
           }}
           minDate={new Date()}
           value={value}
-          highlightDates={[subDays(new Date(), 7), addDays(new Date(), 7)]}
+          highlightDates={[new Date("2023/04/25")]}
           {...rest}
         />
       </div>

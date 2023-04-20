@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AutenticacionContext } from "../../context/AutenticacionProvider";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 const Layout = ({ title, children }) => {
-  const { setUsuario, usuario } = useContext(AutenticacionContext);
+  const { cerrarSesion, usuario } = useContext(AutenticacionContext);
   return (
     <Box sx={boxPrincipal}>
       <Box sx={header}>
@@ -29,7 +29,7 @@ const Layout = ({ title, children }) => {
             sx={{ borderRadius: 0 }}
             datos={[{ name: "Mi pefil", href: `/user/${usuario?.id}` }]}
             IconCustom={Avatar}
-            signOut={() => setUsuario(null)}
+            signOut={() => cerrarSesion()}
           />
         </Box>
       </Box>

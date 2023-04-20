@@ -1,4 +1,3 @@
-import { async } from "q";
 import { fetchContent } from "../utils/fetchContent";
 export const getUser = async () => {
   console.log();

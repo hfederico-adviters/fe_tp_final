@@ -25,6 +25,8 @@ export const useUserDetails = (id) => {
         return {
           ...response,
           userSupervicer: response?.userSupervicer?.id,
+          userSupervicerFirstNameUser: `${response?.userSupervicer?.firstName} ${response?.userSupervicer?.lastName}`,
+          userSupervicerFirstImage: response?.userSupervicer?.image,
         };
       }
     }

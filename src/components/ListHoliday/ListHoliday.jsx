@@ -17,7 +17,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import ListItemIcon from "@mui/material/ListItemIcon";
 //import {dateStyle} from '../../components/ListHoliday/style';
 
-const VacationDetails = () => {
+const VacationDetails = ({ typeLicense, rangeDate, onClick }) => {
   return (
     <List sx={list}>
       <ListItem sx={listItemBlue}>
@@ -30,17 +30,14 @@ const VacationDetails = () => {
               </Typography>
             </React.Fragment>
           }
-          secondary={
-            <Typography sx={textSecondary}>Licencia Medica</Typography>
-          }
+          secondary={<Typography sx={textSecondary}>{typeLicense}</Typography>}
         />
-
         <ListItemText
           primary={<Typography sx={textPrimary}>Dias Tomados: 1</Typography>}
-          secondary={<Typography sx={dateStyle}>12/01 - 13/01</Typography>}
+          secondary={<Typography sx={dateStyle}>{rangeDate}</Typography>}
         />
         <ListItemIcon>
-          <EditIcon />
+          <EditIcon onClick={onClick} />
         </ListItemIcon>
       </ListItem>
       <Divider />
