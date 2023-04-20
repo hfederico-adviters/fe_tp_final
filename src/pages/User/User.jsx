@@ -15,7 +15,7 @@ import { postAddUser, putUser } from "../../services/usuariosServices";
 import SwitchCustom from "../../components/SwitchCustom/SwitchCustom";
 import { strings } from "../../assets/strings/Strings";
 import { useParams } from "react-router";
-import { useUser, useUserDetails } from "../../hook/userHook";
+import { useUserDetails } from "../../hook/userHook";
 
 const User = () => {
   const { idUser } = useParams();
@@ -40,7 +40,6 @@ const User = () => {
         </Box>
         <Form
           onSubmit={(values) => {
-            const body = { ...values, image: "", administration: true };
             if (Number(idUser) === 0) {
               postAddUser(values);
             } else {
