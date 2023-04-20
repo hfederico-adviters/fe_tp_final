@@ -15,6 +15,7 @@ import {
 import UploadFile from "../../components/UploadFile/UploadFile";
 import Boton from "../../components/Button/Button";
 import AvatarLicense from "../../components/AvatarLicence/Avatarlicence";
+import { convertDateAAAAMMDD } from "../../utils/convertDateAAAAMMDD";
 const Licenses = () => {
   return (
     <Layout title={"Carga de Licencias"}>
@@ -34,12 +35,12 @@ const Licenses = () => {
         >
           <Form
             onSubmit={(values) => {
-              console.log(values);
+              console.log(convertDateAAAAMMDD(values?.inicio));
+              // console.log(new Date(values?.inicio));
             }}
             initialValues={{ description: "Viaje al centro de la Tierra." }}
             render={({ handleSubmit, values }) => (
               <Box>
-                {console.log(values)}
                 <Grid container>
                   <AvatarLicense
                     nameUser="Federico"
@@ -106,7 +107,11 @@ const Licenses = () => {
                   </Box>
                 </Grid>
                 <Box sx={{ display: "flex", justifyContent: "end", m: 2 }}>
-                  <Boton name="Solicitar Aprobacion" color={"tertiary"} />
+                  <Boton
+                    name="Solicitar Aprobacion"
+                    onclick={handleSubmit}
+                    color={"tertiary"}
+                  />
                 </Box>
               </Box>
             )}

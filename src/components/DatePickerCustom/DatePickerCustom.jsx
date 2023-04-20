@@ -9,7 +9,7 @@ const DatePickerCustom = ({ label, input, meta, date, ...rest }) => {
   const fecha = new Date(value);
   const day = fecha.getDate();
   const dayDescription = days[fecha.getDay()];
-  const month = months[fecha.getDay()];
+  const month = months[fecha.getMonth() + 1];
 
   return (
     <>
@@ -26,7 +26,6 @@ const DatePickerCustom = ({ label, input, meta, date, ...rest }) => {
           onChange={(date) => {
             input?.onChange(date);
           }}
-          startDate={value}
           minDate={new Date()}
           value={value}
           highlightDates={[subDays(new Date(), 7), addDays(new Date(), 7)]}

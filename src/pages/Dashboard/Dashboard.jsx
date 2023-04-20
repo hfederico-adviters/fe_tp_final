@@ -28,7 +28,6 @@ const Dashboard = () => {
     { date: "24 - Febrero", description: "Carnaval" },
     { date: "25 - Febrero", description: "Carnaval" },
   ];
-  console.log(province);
   return (
     <Layout title={"Inicio"}>
       {rol !== roles.administrator && (
