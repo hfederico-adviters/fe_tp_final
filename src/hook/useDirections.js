@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+
 import { getLocalities, getProvince } from "../services/directionsServices";
 
 export const useProvince = () => {

@@ -1,17 +1,18 @@
 import { fetchContent } from "../utils/fetchContent";
 export const postLogin = async (body, setUsuario) => {
   try {
-    const response = await fetchContent("/login", { body, method: "POST" });
-    setUsuario(`${response?.nombre} ${response?.apellido}`);
+    const response = await fetchContent("/user/login", { body, method: "POST" });
+    setUsuario(response?.user);
     localStorage.setItem(
       "Token",
-      response?.accessToken?.stsTokenManager?.accessToken
+      response?.token
     );
+    console.log(response);
   } catch (error) {
     alert(
       error?.response.data?.message
         ? error?.response.data?.message
-        : "Ha ocurrido un error inesperado"
+        : "Ha ingresado un email o contraseña incorrectos"
     );
     throw new Error("[getGrupos service error]: " + error);
   }
