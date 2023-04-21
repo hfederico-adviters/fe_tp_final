@@ -11,7 +11,7 @@ export const AutenticacionProvider = (props) => {
     setUsuario(null);
   };
 
-  console.log(usuario);
+  
   return (
     <AutenticacionContext.Provider
       value={{ usuario, setUsuario, iniciarSesion, cerrarSesion }}

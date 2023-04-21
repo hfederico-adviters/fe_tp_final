@@ -10,15 +10,26 @@ import {
 } from "../../components/Input/Input";
 import Layout from "../../components/Layout/Layout";
 import Boton from "../../components/Button/Button";
-import imagen from "../squirtle.png";
+
 import { initialValues } from "./constants";
 import SelectCustom from "../../components/SelectCustom/SelectCustom";
-import DatePicker from "react-date-picker";
+
+import File from "../../components/File/File";
+import { postAddUser } from "../../services/usuariosServices";
+import SwitchCustom from "../../components/SwitchCustom/SwitchCustom";
+import { strings } from "../../assets/strings/Strings";
+
 const User = () => {
   const arrayDeOption = [
     { value: "Pepito", label: "fede" },
     { value: 2, label: "mathi" },
   ];
+  const validar = (valor) => {
+    if (!valor) {
+      return "Campo requerido";
+    }
+    return undefined;
+  };
   return (
     <Layout title={"Gestión de licencias"}>
       <Card sx={{ width: "70%", border: "0.2px solid #797979" }}>
@@ -27,151 +38,259 @@ const User = () => {
         </Box>
         <Form
           onSubmit={(values) => {
+            const body = { ...values, image: "", administration: true };
+            postAddUser(values);
             console.log(values);
           }}
           initialValues={initialValues}
-          validate={(values) => {
+          validate={(value) => {
             let error = {};
-            if (!values?.apellido) {
-              error.apellido = "Este campo no puede estar vacio";
+            if (value.password !== value.passwordconf) {
+              error.password = "El password no coincide";
+              error.passwordconf = "El password no coincide";
             }
             return error;
           }}
           render={({ handleSubmit, values }) => (
-            <Box sx={{ margin: "2rem" }}>
-              <Grid container spacing={2}>
-                <Grid item xs={4}>
-                  <>
-                    <img src={imagen} alt="imagen" style={{ width: "8rem" }} />
-                  </>
+
+            console.log(values),
+            (
+              <Box sx={{ margin: "2rem" }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.file.name}
+                      component={File}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.firstName.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.firstName.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.password.name}
+                      component={InputPassword}
+                      label={strings.pageUser.formulario.password.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}></Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.lastName.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.lastName.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.passwordconf.name}
+                      component={InputPassword}
+                      label={strings.pageUser.formulario.passwordconf.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.idUserSupervice.name}
+                      component={SelectCustom}
+                      options={[{ value: 1, label: "fede" }]}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.birthday.name}
+                      component={InputDate}
+                      label={strings.pageUser.formulario.birthday.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.arriveDate.name}
+                      component={InputDate}
+                      label={strings.pageUser.formulario.arriveDate.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.dni.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.dni.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.cuil.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.cuil.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}></Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.email.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.email.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.cellphone.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.cellphone.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}></Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.address.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.address.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.addressNumber.name}
+                      component={InputNumber}
+                      label={strings.pageUser.formulario.addressNumber.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.postalCode.name}
+                      component={InputNumber}
+                      label={strings.pageUser.formulario.postalCode.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.tower.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.tower.label}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.floor.name}
+                      component={InputNumber}
+                      label={strings.pageUser.formulario.floor.label}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.flat.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.flat.label}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.city.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.city.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.province.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.province.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.country.name}
+                      component={InputText}
+                      label={strings.pageUser.formulario.country.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.holidays.name}
+                      component={InputNumber}
+                      label={strings.pageUser.formulario.holidays.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.studydays.name}
+                      component={InputNumber}
+                      label={strings.pageUser.formulario.studydays.label}
+                      validate={validar}
+                    />
+                  </Grid>
+
+                  <Grid item xs={4}>
+                    <Field
+                      name={strings.pageUser.formulario.administrator.name}
+                      component={SwitchCustom}
+                      type="checkbox"
+                      label={strings.pageUser.formulario.administrator.label}
+                    />
+                  </Grid>
+
                 </Grid>
 
-                <Grid item xs={4}>
-                  <Field name="name" component={InputText} label="Nombre" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="password"
-                    component={InputPassword}
-                    label="password nuevo"
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginTop: "1rem",
+                  }}
+                >
+                  <Boton
+                    name={strings.pageUser.formulario.button.name}
+                    onclick={handleSubmit}
                   />
-                </Grid>
-                <Grid item xs={4}></Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="apellido"
-                    component={InputText}
-                    label="Apellido"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="passwordconf"
-                    component={InputPassword}
-                    label="repetir password"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="select"
-                    component={SelectCustom}
-                    options={[{ value: 1, label: "fede" }]}
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="date"
-                    component={InputDate}
-                    label="Fecha Nacimiento"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="date"
-                    component={InputDate}
-                    label="Fecha Ingreso"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="dni" component={InputNumber} label="DNI" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="cuil" component={InputNumber} label="CUIL" />
-                </Grid>
-                <Grid item xs={4}></Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="email"
-                    component={InputText}
-                    label="Correo electrónico"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="cellphone"
-                    component={InputNumber}
-                    label="Teléfono"
-                  />
-                </Grid>
-                <Grid item xs={4}></Grid>
-                <Grid item xs={4}>
-                  <Field name="street" component={InputText} label="Calle" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="number" component={InputNumber} label="Altura" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="postalcode"
-                    component={InputNumber}
-                    label="Código Postal"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="tower" component={InputNumber} label="Torre" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="floor" component={InputNumber} label="Piso" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="flat"
-                    component={InputText}
-                    label="Departamento"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="city" component={InputText} label="Ciudad" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="province"
-                    component={InputText}
-                    label="Provincia"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field name="country" component={InputText} label="País" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Field
-                    name="holidays"
-                    component={InputNumber}
-                    label="Días Vacaciones"
-                  />
-                </Grid>
-              </Grid>
-              <Box
-                sx={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  marginTop: "1rem",
-                }}
-              >
-                <Boton name="Guardar" onclick={handleSubmit} />
+                </Box>
               </Box>
-            </Box>
+            )
           )}
         />
       </Card>

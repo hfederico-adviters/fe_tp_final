@@ -14,7 +14,7 @@ import {
 } from "./style";
 import UploadFile from "../../components/UploadFile/UploadFile";
 import Boton from "../../components/Button/Button";
-import AvatarLicense from "../../components/AvatarLicense/Avatarlicense";
+import AvatarLicense from "../../components/AvatarLicence/Avatarlicence";
 const Licenses = () => {
   return (
     <Layout title={"Carga de Licencias"}>
@@ -39,6 +39,7 @@ const Licenses = () => {
             initialValues={{ description: "Viaje al centro de la Tierra." }}
             render={({ handleSubmit, values }) => (
               <Box>
+                {console.log(values)}
                 <Grid container>
                   <AvatarLicense
                     nameUser="Federico"

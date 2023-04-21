@@ -14,7 +14,7 @@ const CircleColor = ({ color, small = true }) => {
         borderRadius: 30,
       }
     : { background: tramite, height: 20, width: 20, borderRadius: 30 };
-  return <Box sx={sx}/>;
+  return <Box sx={sx} />;
 };
 
 export default CircleColor;

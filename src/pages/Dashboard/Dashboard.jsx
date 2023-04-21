@@ -1,15 +1,21 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Layout from "../../components/Layout/Layout";
-import { boxBody, boxContainer, card, typografy } from "./style";
+import { boxContainer } from "./style";
 import Calender from "./components/Calender";
-import ListLicense from "./components/ListLicenses";
 import { useState } from "react";
 import LicenseDetails from "./components/LicenseDetails";
 import ListAdministrator from "./components/ListAdm";
 import { roles } from "../../contants/roles";
 import ListDefault from "./components/ListDefault";
 import Boton from "../../components/Button/Button";
+import { useProvince } from "../../hook/useDirections";
 const Dashboard = () => {
+  const {
+    data: province,
+    isLoading: isLoadingProvince,
+    isError: isErrorProvince,
+  } = useProvince();
+
   const rol = "administrator";
   const [showDatailsLicenses, setShowDetailsLicenses] = useState({
     open: false,
@@ -22,7 +28,7 @@ const Dashboard = () => {
     { date: "24 - Febrero", description: "Carnaval" },
     { date: "25 - Febrero", description: "Carnaval" },
   ];
-
+  console.log(province);
   return (
     <Layout title={"Inicio"}>
       {rol !== roles.administrator && (

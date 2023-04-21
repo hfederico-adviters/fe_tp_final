@@ -1,5 +1,5 @@
 import { Box, Grid, TextField, Typography } from "@mui/material";
-import AvatarLicense from "../../../components/AvatarLicense/Avatarlicense";
+import AvatarLicense from "../../../components/AvatarLicence/Avatarlicence";
 import LicenceRangeDate from "../../../components/LicenceRangeDate/LicenceRangeDate";
 import TableMissing from "./TableMissing";
 import Boton from "../../../components/Button/Button";

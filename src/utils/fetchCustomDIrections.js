@@ -2,7 +2,7 @@ import axios from "axios";
 import camelcaseKeys from "camelcase-keys";
 
 const httpClient = axios.create({
-  baseURL: "https://bootcamp-adviters.herokuapp.com",
+  baseURL: "https://apis.datos.gob.ar/georef/api/",
 });
 export const Method = {
   GET: "GET",
@@ -11,21 +11,14 @@ export const Method = {
   POST: "POST",
   DELETE: "DELETE",
 };
-export const fetchContent = async (url, config = {}) => {
+export const fetchContentDirections = async (url, config = {}) => {
   try {
     const { headers: headersOptions } = config;
     const token = localStorage.getItem("Token");
-    const headers = token
-      ? {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-          ...headersOptions,
-        }
-      : {
-          "Content-Type": "application/json",
-          ...headersOptions,
-        };
-
+    const headers = {
+      "Content-Type": "application/json",
+      ...headersOptions,
+    };
     const { body, ...options } = config;
     const source = axios.CancelToken.source();
     const request = {
