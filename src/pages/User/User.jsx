@@ -29,10 +29,10 @@ const User = () => {
     isError,
   } = useUserDetails(idUser);
   if (isLoadingUser) {
-    return <Typography>Cargandooo</Typography>;
+    return <Typography>Cargando</Typography>;
   }
   if (isError) {
-    return <Typography>error</Typography>;
+    return <Typography>Error</Typography>;
   }
   console.log();
   return (
