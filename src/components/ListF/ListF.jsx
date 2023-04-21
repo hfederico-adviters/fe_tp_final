@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../../components/ListF/ListF.css'
-import { Divider } from "@mui/material";
+import {Divider } from "@mui/material";
 import CustomizedDialogs from "../ModalHoliday/ModalHoliday";
 import { getHolidays } from "../../services/holidaysServices";
 const ListF = () => {
@@ -19,25 +19,19 @@ const ListF = () => {
 
     return (
         <div className="contenedorHoliday">
+                <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+            <h1 style={{color:"#FFA1A1", marginRight: "1rem"}}>Feriados</h1>
             <CustomizedDialogs setRefreshHolidays={setRefreshHolidays}/>
-            <h1>Feriados</h1>
+            </div>
             {holidays.map(holiday => (
 
                 <div key = {holiday.id}className="fila">
                     <div className="fecha">{holiday.date}</div>
                     <div className="descripcion">{holiday.description}</div>
-                    <Divider />
+                    <Divider/>
                 </div>
+                
             ))}
-            {/* <div className="fila">
-                <div className="fecha">21/11/2022</div>
-                <div className="descripcion">Feriado con fines Turisticos</div>
-            </div>
-            <Divider />
-            <div className="fila">
-                <div className="fecha">21/11/2022</div>
-                <div className="descripcion">Feriado con fines Turisticos</div>
-            </div> */}
         </div>
     );
 }

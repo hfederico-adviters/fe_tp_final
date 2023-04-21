@@ -2,23 +2,27 @@
     display: flex;
     /* border: 1px solid black; */
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     height: 80%;
     border: 1px solid black;
 }
 .fila{
     display: flex;
-    justify-content: space-between;
-    /* align-items: flex-start; */
-    align-items: center;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+    /* align-items: center; */
 
 }
-.fecha {
-    /* font-weight: bold; */
-    /* margin-bottom: 1rem; */
-  }
+
 
 .descripcion{
-    flex: 1;
+    /* flex: 1; */
     margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid black;
 }
+
+/* .desc{
+     margin-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+} */
