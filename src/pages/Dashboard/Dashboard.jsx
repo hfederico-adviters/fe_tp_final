@@ -9,6 +9,7 @@ import { roles } from "../../contants/roles";
 import ListDefault from "./components/ListDefault";
 import Boton from "../../components/Button/Button";
 import { useProvince } from "../../hook/useDirections";
+import CalenderWeather from "./components/CalenderWeather";
 const Dashboard = () => {
   const {
     data: province,
@@ -37,7 +38,8 @@ const Dashboard = () => {
       )}
       <Box sx={boxContainer}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Calender data={proxFeriado} />
+          <CalenderWeather/>
+          {/* <Calender data={proxFeriado} /> */}
           <Calender data={proxFeriado} />
         </Box>
         {rol === roles.administrator ? (

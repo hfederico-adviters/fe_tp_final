@@ -1,41 +1,45 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import '../../components/ListF/ListF.css'
 import { Divider } from "@mui/material";
 import CustomizedDialogs from "../ModalHoliday/ModalHoliday";
+import { getHolidays } from "../../services/holidaysServices";
 const ListF = () => {
 
+    //intentom de confirmar..
     const [holidays, setHolidays] = useState([]);
-
-    const addHoliday = (date, motivo) => {
-        setHolidays([...holidays, { date, motivo }]);
+    const [refreshHolidays, setRefreshHolidays] = useState(true);
+    useEffect( () => {
+        if(refreshHolidays){
+            console.log(refreshHolidays)
+        getHolidays(setHolidays)
+        setRefreshHolidays(false)
     }
+    },[refreshHolidays, holidays])
 
 
-    return(
+    return (
         <div className="contenedorHoliday">
-            <CustomizedDialogs onConfirm={addHoliday}/>
-            <h1> Feriados</h1>
-            {holidays.map(holiday =>(
+            <CustomizedDialogs setRefreshHolidays={setRefreshHolidays}/>
+            <h1>Feriados</h1>
+            {holidays.map(holiday => (
 
-            <div key={holiday.date} className="fila">
-                <div className="fecha">{holiday.date}</div>
-                <div className="descripcion">{holiday.motivo}</div>            
-                <Divider/>
-            </div>
+                <div key = {holiday.id}className="fila">
+                    <div className="fecha">{holiday.date}</div>
+                    <div className="descripcion">{holiday.description}</div>
+                    <Divider />
+                </div>
             ))}
-            <div className="fila">
+            {/* <div className="fila">
                 <div className="fecha">21/11/2022</div>
-                <div className="descripcion">Feriado con fines Turisticos</div>            
+                <div className="descripcion">Feriado con fines Turisticos</div>
             </div>
-            <Divider/>
+            <Divider />
             <div className="fila">
                 <div className="fecha">21/11/2022</div>
-                <div className="descripcion">Feriado con fines Turisticos</div>            
-            </div>   
-          
-          
 
-           
+                <div className="descripcion">Feriado con fines Turisticos</div>
+            </div> */}
         </div>
     );
 }
