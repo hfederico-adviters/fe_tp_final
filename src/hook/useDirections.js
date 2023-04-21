@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getGrupos, getIntegrantes } from "../services/gruposServices";
+// import { getGrupos, getIntegrantes } from "../services/gruposServices";
 import { getLocalities, getProvince } from "../services/directionsServices";
 
 export const useProvince = () => {
