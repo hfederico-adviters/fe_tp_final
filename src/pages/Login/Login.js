@@ -14,6 +14,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     const body = {
       email: email,
       password: password

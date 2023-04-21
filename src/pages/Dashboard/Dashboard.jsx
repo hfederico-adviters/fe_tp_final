@@ -17,7 +17,7 @@ const Dashboard = () => {
     isError: isErrorProvince,
   } = useProvince();
 
-  const rol = "administrator";
+  const rol = "administrato";
   const [showDatailsLicenses, setShowDetailsLicenses] = useState({
     open: false,
     userId: null,
@@ -29,7 +29,6 @@ const Dashboard = () => {
     { date: "24 - Febrero", description: "Carnaval" },
     { date: "25 - Febrero", description: "Carnaval" },
   ];
-  console.log(province);
   return (
     <Layout title={"Inicio"}>
       {rol !== roles.administrator && (

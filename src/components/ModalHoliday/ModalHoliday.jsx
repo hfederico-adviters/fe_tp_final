@@ -42,7 +42,6 @@ export default function ModalJo({setRefreshHolidays}) {
   const [dateValue, setDateValue] = React.useState("");
   const [motivoValue, setMotivoValue] = React.useState("");
 
-
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -50,6 +49,7 @@ export default function ModalJo({setRefreshHolidays}) {
     //Guardo los valores ingresados en las variables
     const date = dateValue;
     const motivo = motivoValue;
+
     
     const body = {
     date: dateValue,
@@ -117,6 +117,7 @@ export default function ModalJo({setRefreshHolidays}) {
           </Button>
           </Grid>
                  </Grid>
+
         </Box>
       </Modal>
     </div>

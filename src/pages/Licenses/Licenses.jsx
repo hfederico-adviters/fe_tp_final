@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout/Layout";
-import { Box, Container, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 import VacationDetails from "../../components/ListHoliday/ListHoliday";
 import LicenceRangeDate from "../../components/LicenceRangeDate/LicenceRangeDate";
 import { Field, Form } from "react-final-form";
@@ -15,7 +15,38 @@ import {
 import UploadFile from "../../components/UploadFile/UploadFile";
 import Boton from "../../components/Button/Button";
 import AvatarLicense from "../../components/AvatarLicence/Avatarlicence";
+import { convertDateAAAAMMDD } from "../../utils/convertDateAAAAMMDD";
+import { useLicenseDetails, useTypeLicense } from "../../hook/useLicense";
+import { AutenticacionContext } from "../../context/AutenticacionProvider";
+import { useContext, useState } from "react";
+import { useUserDetails } from "../../hook/userHook";
+import { postLicense, putLicense } from "../../services/licenseService";
 const Licenses = () => {
+  const [licenseId, setLicenseId] = useState(null);
+  const { usuario } = useContext(AutenticacionContext);
+  const {
+    data: listTypeLicense,
+    isLoading: isLoadingListTypeLicense,
+    isError: isErrorListTypeLicense,
+  } = useTypeLicense();
+  const {
+    data: dataUser,
+    isLoading: isLoadingUser,
+    isError: isErrorDateUser,
+  } = useUserDetails(usuario?.id);
+  const {
+    data: licenseDetails,
+    isLoading: isLoadingLicenseDetails,
+    isError: isErrorDateLicenseDetails,
+  } = useLicenseDetails(licenseId);
+
+  if (isLoadingUser || isLoadingListTypeLicense || isLoadingLicenseDetails) {
+    return <Box>Loading</Box>;
+  }
+  if (isErrorDateUser || isErrorListTypeLicense || isErrorDateLicenseDetails) {
+    return <Box>Error</Box>;
+  }
+  console.log(licenseDetails);
   return (
     <Layout title={"Carga de Licencias"}>
       <Grid container spacing={2} sx={container}>
@@ -34,17 +65,41 @@ const Licenses = () => {
         >
           <Form
             onSubmit={(values) => {
-              console.log(values);
+              const body = {
+                ...values,
+                endDate: convertDateAAAAMMDD(values?.endDate),
+                startDate: convertDateAAAAMMDD(values?.startDate),
+                fkUserSupervice: {
+                  id: dataUser?.userSupervicer,
+                },
+                fkUser: {
+                  id: dataUser?.id,
+                },
+                licenceStatus: { id: 1 },
+              };
+              if (licenseId) {
+                putLicense(licenseId, {
+                  ...body,
+                  licenceStatus: licenseDetails.licenceStatus,
+                });
+              } else {
+                console.log("crear");
+                postLicense(body);
+              }
             }}
-            initialValues={{ description: "Viaje al centro de la Tierra." }}
+            initialValues={licenseDetails}
             render={({ handleSubmit, values }) => (
               <Box>
-                {console.log(values)}
                 <Grid container>
+                  ?
                   <AvatarLicense
-                    nameUser="Federico"
-                    state="AUN NO ENVIADO"
-                    currentBalance="24"
+                    nameUser={dataUser.firstName}
+                    state={
+                      licenseDetails?.licenceStatus?.description
+                        ? licenseDetails?.licenceStatus?.description
+                        : "AUN NO ENVIADO"
+                    }
+                    currentBalance={dataUser.availableVacationsDays}
                   />
                   <Divider />
                   <Grid item xs={6} sx={{ p: 1 }}>
@@ -57,26 +112,29 @@ const Licenses = () => {
                     </Typography>
                     <Box sx={{ py: 1 }}>
                       <Field
-                        name="licenseId"
+                        name="licenceType.id"
                         label="Licencia"
                         component={SelectCustom}
                         sx={{ maxWidth: "150px" }}
                         size="large"
-                        options={[
-                          { value: 1, label: "Vacaciones" },
-                          { value: 2, label: "Enfermedad" },
-                          { value: 3, label: "Examen" },
-                        ]}
+                        options={listTypeLicense.map((typeLicense) => {
+                          return {
+                            value: typeLicense?.id,
+                            label: typeLicense?.description,
+                          };
+                        })}
                       />
                     </Box>
                     <Box sx={{ mt: 2 }}>
-                      <LicenceRangeDate workDays="8" daysAvailable={"24"} />
+                      <LicenceRangeDate
+                        workDays="8"
+                        daysAvailable={dataUser?.availableVacationsDays}
+                      />
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <UploadFile />
                   </Grid>
-
                   <Box sx={{ width: "100%", p: 1, mt: 2 }}>
                     <Typography
                       variant="subtitle2"
@@ -102,11 +160,18 @@ const Licenses = () => {
                     >
                       Aprobacion a cargo de:
                     </Typography>
-                    <FooterLicence />
+                    <FooterLicence
+                      nameUser={dataUser?.userSupervicerFirstNameUser}
+                      img={dataUser.userSupervicerFirstImage}
+                    />
                   </Box>
                 </Grid>
                 <Box sx={{ display: "flex", justifyContent: "end", m: 2 }}>
-                  <Boton name="Solicitar Aprobacion" color={"tertiary"} />
+                  <Boton
+                    name="Solicitar Aprobacion"
+                    onclick={handleSubmit}
+                    color={"tertiary"}
+                  />
                 </Box>
               </Box>
             )}
@@ -117,8 +182,15 @@ const Licenses = () => {
             <Typography sx={typografyVacation}>
               Detalle de Vacaciones
             </Typography>
-            <VacationDetails />
-            <VacationDetails />
+            {dataUser.licenceList?.map((license) => (
+              <VacationDetails
+                typeLicense={license?.licenceType?.description}
+                rangeDate={`${license?.startDate} - ${license?.endDate}`}
+                onClick={() =>
+                  setLicenseId(licenseId === license?.id ? null : license?.id)
+                }
+              />
+            ))}
           </Box>
         </Grid>
       </Grid>
