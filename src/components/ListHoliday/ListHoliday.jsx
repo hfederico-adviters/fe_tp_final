@@ -15,6 +15,9 @@ import {
 } from "../ListCustom/style";
 import EditIcon from "@mui/icons-material/Edit";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import CircleColor from "../CircleColor/CircleColor";
+import { colorCircle } from "../../utils/colorCircle";
+import { Box } from "@mui/material";
 //import {dateStyle} from '../../components/ListHoliday/style';
 
 const VacationDetails = ({ typeLicense, rangeDate, onClick }) => {
@@ -30,7 +33,12 @@ const VacationDetails = ({ typeLicense, rangeDate, onClick }) => {
               </Typography>
             </React.Fragment>
           }
-          secondary={<Typography sx={textSecondary}>{typeLicense}</Typography>}
+          secondary={
+            <Box>
+              <CircleColor color={() => colorCircle(typeLicense)} />
+              <Typography sx={textSecondary}>{typeLicense}</Typography>
+            </Box>
+          }
         />
         <ListItemText
           primary={<Typography sx={textPrimary}>Dias Tomados: 1</Typography>}
