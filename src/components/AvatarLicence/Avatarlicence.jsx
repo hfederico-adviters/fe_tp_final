@@ -8,7 +8,7 @@ function AvatarLicense({ nameUser, state, currentBalance, onClose }) {
   return (
     <Box className="container" sx={container}>
       <Box sx={boxAvatar}>
-        <Avatar alt="Nombre user" src="/static/images/avatar/2.jpg" />
+        <Avatar alt={nameUser} src="/static/images/avatar/2.jpg" />
         <Typography variant="subtitle2" sx={typografy}>
           {nameUser}
         </Typography>

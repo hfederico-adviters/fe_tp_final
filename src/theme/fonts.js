@@ -55,6 +55,12 @@ export const fontConfig = {
     fontWeight: 600,
     fontSize: 14,
   },
+  body3: {
+    color: "#797979",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
   caption: {
     fontStyle: "normal",
     fontWeight: 400,

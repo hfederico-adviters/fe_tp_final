@@ -1,21 +1,41 @@
 import { Box, Typography } from "@mui/material";
 import { boxBody, card, typografy } from "../style";
 import ListLicense from "./ListLicenses";
+import { putLicense } from "../../../services/licenseService";
 
-const ListAdministrator = ({ array, setShowDetailsLicenses }) => {
+const ListAdministrator = ({
+  licenceList,
+  ListLicenseAproved,
+  setShowDetailsLicenses,
+}) => {
+  console.log(ListLicenseAproved);
   return (
     <>
       <Box sx={boxBody}>
         <Typography sx={typografy}>solicitudes pendientes</Typography>
         <Box sx={card}>
-          {array?.map((item) => (
+          {licenceList?.map((item) => (
             <ListLicense
               key={"2" + item}
               onClickCard={() =>
-                setShowDetailsLicenses({ open: true, userId: 1 })
+                setShowDetailsLicenses({ open: true, userId: item?.id })
               }
-              onClickButtonAccept={() => console.log("aceptar")}
-              onClickButtonDecline={() => console.log("rechazar")}
+              rangeDate={`${item?.startDate} - ${item?.endDate}`}
+              nameUser={item?.fkUser?.firstName}
+              nameImg={item?.fkUser?.image ? item?.fkUser?.image : "/"}
+              licenceType={item?.licenceType}
+              onClickButtonAccept={() => {
+                putLicense(item?.id, {
+                  ...item,
+                  licenceStatus: { ...item?.licenceStatus, id: 3 },
+                });
+              }}
+              onClickButtonDecline={() => {
+                putLicense(item?.id, {
+                  ...item,
+                  licenceStatus: { ...item?.licenceStatus, id: 2 },
+                });
+              }}
             />
           ))}
         </Box>
@@ -23,10 +43,16 @@ const ListAdministrator = ({ array, setShowDetailsLicenses }) => {
       <Box sx={boxBody}>
         <Typography sx={typografy}>proximas licencias aprobadas</Typography>
         <Box sx={card}>
-          {array?.map((item) => (
+          {ListLicenseAproved?.map((item) => (
             <ListLicense
               key={"3" + item}
-              onClickCard={() => console.log(item)}
+              onClickCard={() =>
+                setShowDetailsLicenses({ open: true, userId: item?.id })
+              }
+              rangeDate={`${item?.startDate} - ${item?.endDate}`}
+              nameUser={item?.fkUser?.firstName}
+              nameImg={item?.fkUser?.image ? item?.fkUser?.image : "/"}
+              licenceType={item?.licenceType}
             />
           ))}
         </Box>

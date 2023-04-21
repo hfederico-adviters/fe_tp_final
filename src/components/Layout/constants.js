@@ -6,10 +6,13 @@ import InboxIcon from "@mui/icons-material/Inbox";
 export const MenuNavigation = [
   { name: "Home", icon: PollIcon, href: "/" },
   { name: "Cargar licencias", icon: CalendarTodayIcon, href: "/licenses" },
-  { name: "Administrar usuarios", icon: GroupsIcon, href: "/" },
-  { name: "Mantenimientos de calendario", icon: CalendarTodayIcon, href: "/" },
+  { name: "Administrar usuarios", icon: GroupsIcon, href: "/EnabledUser" },
+  {
+    name: "Mantenimientos de calendario",
+    icon: CalendarTodayIcon,
+    href: "/CalendarH",
+  },
 ];
-export const MenuAvatarNagivation = [{ name: "Mi pefil", href: "/user" }];
 export const MenuNotification = [
   { name: "Nueva aprobacion pendiente", href: "/", icon: DraftsIcon },
   { name: "Nuevo feriado agregado", href: "#", icon: InboxIcon },

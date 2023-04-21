@@ -2,7 +2,7 @@ import axios from "axios";
 import camelcaseKeys from "camelcase-keys";
 
 const httpClient = axios.create({
-  baseURL: "http://localhost:8765/api/v1/",
+  baseURL: "http://172.12.50.31:8765/api/v1/",
 });
 export const Method = {
   GET: "GET",
@@ -22,10 +22,11 @@ export const fetchContent = async (url, config = {}) => {
           ...headersOptions,
         }
       : {
-          "Access-Control-Allow-Origin": '*',
-          "Access-Control-Allow-Method" : "POST, GET, PUT, DELETE, OPTIONS, HEAD", 
-          "Access-Control-Allow-Headers":"*", 
-          "Content-Type": 'application/json', 
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Method":
+            "POST, GET, PUT, DELETE, OPTIONS, HEAD",
+          "Access-Control-Allow-Headers": "*",
+          "Content-Type": "application/json",
           ...headersOptions,
         };
 

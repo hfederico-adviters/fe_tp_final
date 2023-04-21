@@ -54,14 +54,17 @@ const TableMissing = ({ headersName, listUserMissing }) => {
                 <TableCell sx={{ display: "flex", alignItems: "center" }}>
                   <CircleColor small={false} />
                   <Box sx={{ ml: 1 }}>
-                    <Avatar alt="laura" />
+                    <Avatar alt={row?.fkUser?.firstName} src="/" />
                   </Box>
                 </TableCell>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.period}</TableCell>
-                <TableCell>{row.days}</TableCell>
+                <TableCell>{row?.fkUser?.firstName}</TableCell>
+                <TableCell>{`${row?.startDate} - ${row?.endDate}`}</TableCell>
+                <TableCell>8</TableCell>
                 <TableCell>
-                  <Chip label={row.status} sx={chipTableMissing} />
+                  <Chip
+                    label={row?.licenceStatus?.description}
+                    sx={chipTableMissing}
+                  />
                 </TableCell>
               </TableRow>
             ))}

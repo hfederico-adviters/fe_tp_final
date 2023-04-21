@@ -1,7 +1,7 @@
 import Avatar from "@mui/material/Avatar";
 import { Typography, Box } from "@mui/material";
 
-const FooterLicence = () => {
+const FooterLicence = ({ nameUser, img }) => {
   return (
     <Box
       sx={{
@@ -10,8 +10,8 @@ const FooterLicence = () => {
         m: 1,
       }}
     >
-      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-      <Typography sx={{ ml: 1, color: "red" }}>LIONEL SCALONI</Typography>
+      <Avatar alt={nameUser} src={img ? img : "/"} />
+      <Typography sx={{ ml: 1, color: "red" }}>{nameUser}</Typography>
     </Box>
   );
 };

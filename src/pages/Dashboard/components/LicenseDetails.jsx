@@ -1,12 +1,20 @@
 import { Box, Grid, TextField, Typography } from "@mui/material";
 import AvatarLicense from "../../../components/AvatarLicence/Avatarlicence";
 import LicenceRangeDate from "../../../components/LicenceRangeDate/LicenceRangeDate";
-import TableMissing from "./TableMissing";
 import Boton from "../../../components/Button/Button";
 import { textSecondaryListLicenses } from "../style";
-import { listUserMissing } from "../contants/dataTest";
+import TableMissing from "./TableMissing";
 
-const LicenseDetails = ({ onClose }) => {
+const LicenseDetails = ({
+  startDate,
+  endDate,
+  workDays,
+  nameUser,
+  description,
+  listUserMissing,
+  onClose,
+  isAdmin = false,
+}) => {
   return (
     <Box
       sx={{
@@ -18,13 +26,13 @@ const LicenseDetails = ({ onClose }) => {
         px: 2,
       }}
     >
-      <AvatarLicense onClose={onClose} nameUser="Ricky" />
+      <AvatarLicense onClose={onClose} nameUser={nameUser} />
       <Grid container>
         <Grid item xs={12} sm={6} sx={{ p: 2 }}>
           <LicenceRangeDate
-            startDate={"2022/04/03"}
-            endDate={"2022/04/03"}
-            workDays={"8"}
+            startDate={startDate}
+            endDate={endDate}
+            workDays={workDays}
             isFormulario={false}
           />
         </Grid>
@@ -74,7 +82,7 @@ const LicenseDetails = ({ onClose }) => {
           DESCRIPCIÓN
         </Typography>
         <TextField
-          value={""}
+          value={description}
           rows={7}
           sx={{ width: "80%" }}
           fullWidth
@@ -91,8 +99,16 @@ const LicenseDetails = ({ onClose }) => {
         />
       </Box>
       <Box sx={{ display: "flex", justifyContent: "end", my: 2, mb: 5 }}>
-        <Boton name="Rechazar" color="error" />
-        <Boton name="Aprobar" color="tertiary" sx={{ ml: 2 }} />
+        {isAdmin ? (
+          <>
+            <Boton name="Rechazar" color="error" />
+            <Boton name="Aprobar" color="tertiary" sx={{ ml: 2 }} />
+          </>
+        ) : (
+          <>
+            <Boton name="Cancelar solicitud" color="error" />
+          </>
+        )}
       </Box>
     </Box>
   );
