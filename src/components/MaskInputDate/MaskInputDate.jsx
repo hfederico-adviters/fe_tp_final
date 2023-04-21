@@ -9,8 +9,8 @@ const MaskInputDate = ({ month, day, dayDescription, onClick }) => {
         background: "#FFFFFF",
         borderRadius: "8px",
         border: "0.5px solid #797979",
-        width: 100,
-        height: 80,
+        width: 120,
+        height: 90,
       }}
       onClick={onClick}
     >
@@ -36,10 +36,16 @@ const MaskInputDate = ({ month, day, dayDescription, onClick }) => {
           flexDirection: "column",
         }}
       >
-        <Typography sx={{ display: "flex", justifyContent: "center" }}>
+        <Typography
+          sx={{ display: "flex", justifyContent: "center" }}
+          variant="body3"
+        >
           {day}
         </Typography>
-        <Typography sx={{ display: "flex", justifyContent: "center" }}>
+        <Typography
+          sx={{ display: "flex", justifyContent: "center" }}
+          variant="body3"
+        >
           {dayDescription}
         </Typography>
       </Box>

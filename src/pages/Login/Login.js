@@ -5,15 +5,20 @@ import { InputText } from "../../components/Input/Input";
 import { Box, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { AutenticacionContext } from "../../context/AutenticacionProvider";
+import { postLogin } from "../../services/loginServices";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUsuario } = useContext(AutenticacionContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
-    localStorage.setItem("user", "usuario");
-    setUsuario("usuario");
+    const body = {
+      email: email,
+      password: password,
+    };
+    postLogin(body, setUsuario);
     //con esta funcion valido los datos que me ingresan en el login
   };
 

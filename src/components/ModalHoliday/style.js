@@ -1,0 +1,25 @@
+export const boxStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  maxWidth: 500,
+  width: "90%",
+  minHeight: 150,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  borderRadius: 5,
+  boxShadow: 24,
+  p: 4,
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+  // justifyContent: "space-between"
+  "& .close-icon": {
+    position: "absolute",
+    top: "0",
+    right: "0",
+    margin: "10px",
+    cursor: "pointer",
+  },
+};

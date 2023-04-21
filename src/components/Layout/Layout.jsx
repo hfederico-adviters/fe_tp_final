@@ -1,16 +1,12 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import { body, boxPrincipal, header } from "./style";
 import MenuCustom from "../MenuCustom/MenuCustom";
-import {
-  MenuAvatarNagivation,
-  MenuNavigation,
-  MenuNotification,
-} from "./constants";
+import { MenuNavigation, MenuNotification } from "./constants";
 import { useContext } from "react";
 import { AutenticacionContext } from "../../context/AutenticacionProvider";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 const Layout = ({ title, children }) => {
-  const { setUsuario } = useContext(AutenticacionContext);
+  const { cerrarSesion, usuario } = useContext(AutenticacionContext);
   return (
     <Box sx={boxPrincipal}>
       <Box sx={header}>
@@ -31,9 +27,9 @@ const Layout = ({ title, children }) => {
           />
           <MenuCustom
             sx={{ borderRadius: 0 }}
-            datos={MenuAvatarNagivation}
+            datos={[{ name: "Mi pefil", href: `/user/${usuario?.id}` }]}
             IconCustom={Avatar}
-            signOut={() => setUsuario(null)}
+            signOut={() => cerrarSesion()}
           />
         </Box>
       </Box>
