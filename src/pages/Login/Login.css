@@ -31,9 +31,11 @@
   position: absolute;
   width: 366.27px;
   height: 405.45px;
-  left: 537.66px;
-  top: 100.8px;
-  
+  /* left: 537.66px;
+  top: 100.8px; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: #FAFAFA;
   border: 1px solid #797979;
   border-radius: 16px;
@@ -53,7 +55,9 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  width: 200px;
+  /* width: 200px; */
+  width: 100%;
+  max-width: 400px;
   height: 56px;
   border: 1px solid #797979;
   background: #FFFFFF;
@@ -81,3 +85,18 @@
     margin-left: auto;
 
   }
+
+  /*Media Queries*/
+  @media only screen and (max-width: 600px){
+    .login-form{
+      width: 90%;
+      height: auto;
+      padding: 40px;
+    }
+  
+
+  .login-input{
+    width: 100%;
+    max-width: none;
+  }
+}
