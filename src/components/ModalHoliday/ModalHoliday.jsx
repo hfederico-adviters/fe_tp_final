@@ -57,7 +57,7 @@ export default function ModalJo({setRefreshHolidays}) {
     }
 
     postHolidays(body, setRefreshHolidays);
-    setRefreshHolidays(true);
+    // setRefreshHolidays(true);
     // getHolidays(setRefreshHolidays);
     //Cierro el modal
     handleClose();
@@ -66,7 +66,7 @@ export default function ModalJo({setRefreshHolidays}) {
   return (
     <div>
         <div style={{display: "flex", justifyContent:"flex-end" }} >
-      <Button variant="contained" color="success" size="small" onClick={handleOpen}>
+      <Button variant="contained" color="tertiary" size="small" onClick={handleOpen} style={{color:"white"}}>
         Crear Nuevo Feriado
       </Button>
       </div>
@@ -109,10 +109,10 @@ export default function ModalJo({setRefreshHolidays}) {
                    />
                  </Grid>
                  <Grid item xs={12} sx={{ display: "flex", justifyContent: "flex-end"}}>
-                 <Button variant="contained" color="error" onClick={handleClose}>
+                 <Button variant="contained" color="error" onClick={handleClose} style={{color:"white"}}>
             Cancelar
           </Button>
-<Button variant="contained" sx={{ml: 1}}onClick={handleConfirm} color="success">
+<Button variant="contained" sx={{ml: 1}}onClick={handleConfirm} color="tertiary" style={{color:"white"}}>
             Confirmar
           </Button>
           </Grid>
