@@ -17,29 +17,36 @@ import { Box } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
 import CircleColor from "../../../components/CircleColor/CircleColor";
+import { colorCircle } from "../../../utils/colorCircle";
 
 const ListLicense = ({
   onClickCard,
   onClickButtonAccept,
   onClickButtonDecline,
   withCircleColor = true,
+  licenceType,
+  rangeDate,
+  nameUser,
+  nameImg,
   sx = {},
 }) => {
   return (
     <List sx={{ ...listListLicenses, ...sx }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt={nameUser} src={nameImg} />
         </ListItemAvatar>
         <Box sx={containerListLicenses}>
           <Box sx={boxTextListLicenses} onClick={onClickCard}>
-            <Typography sx={textPrimaryListLicenses}>Jennifer</Typography>
-            <Typography sx={textSecondaryListLicenses}>
-              25/09 - 31/09
-            </Typography>
+            <Typography sx={textPrimaryListLicenses}>{nameUser}</Typography>
+            <Typography sx={textSecondaryListLicenses}>{rangeDate}</Typography>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              {withCircleColor && <CircleColor color="red" />}
-              <Typography sx={textThirdListLicenses}>vacaciones</Typography>
+              {withCircleColor && (
+                <CircleColor color={colorCircle(licenceType?.id)} />
+              )}
+              <Typography sx={textThirdListLicenses}>
+                {licenceType?.description}
+              </Typography>
             </Box>
           </Box>
           {onClickButtonAccept && onClickButtonDecline && (

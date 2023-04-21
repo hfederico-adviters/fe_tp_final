@@ -17,7 +17,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          {usuario?.usuario ? (
+          {usuario?.id ? (
             <>
               <Route path="/" element={<Dashboard />} />
               <Route path="/licenses" element={<Licenses />} />

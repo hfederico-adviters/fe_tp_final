@@ -55,7 +55,7 @@ const ListEnabledUser = ({ data }) => {
                 </div>
                 <div className="textContainer" style={{ marginLeft: "auto" }}>
                   <Typography variant="subtitle1">
-                    {user.administrator ? "Administrador" : "Usuario"}
+                    {user?.administrator ? "Administrador" : "Usuario"}
                   </Typography>
                 </div>
                 <div className="iconsContainer" style={{ marginLeft: "auto" }}>

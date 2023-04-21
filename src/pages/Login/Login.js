@@ -14,13 +14,11 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     const body = {
       email: email,
-      password: password
-    }
+      password: password,
+    };
     postLogin(body, setUsuario);
-
     //con esta funcion valido los datos que me ingresan en el login
   };
 

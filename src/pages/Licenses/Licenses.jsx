@@ -54,7 +54,7 @@ const Licenses = () => {
           item
           xs={12}
           sm={6}
-          md={8}
+          md={7}
           sx={{
             background: "#FFFFFF",
             border: "0.5px solid #797979",
@@ -91,15 +91,14 @@ const Licenses = () => {
             render={({ handleSubmit, values }) => (
               <Box>
                 <Grid container>
-                  ?
                   <AvatarLicense
-                    nameUser={dataUser.firstName}
+                    nameUser={dataUser?.firstName}
                     state={
                       licenseDetails?.licenceStatus?.description
                         ? licenseDetails?.licenceStatus?.description
                         : "AUN NO ENVIADO"
                     }
-                    currentBalance={dataUser.availableVacationsDays}
+                    currentBalance={dataUser?.availableVacationsDays}
                   />
                   <Divider />
                   <Grid item xs={6} sx={{ p: 1 }}>
@@ -162,7 +161,7 @@ const Licenses = () => {
                     </Typography>
                     <FooterLicence
                       nameUser={dataUser?.userSupervicerFirstNameUser}
-                      img={dataUser.userSupervicerFirstImage}
+                      img={dataUser?.userSupervicerFirstImage}
                     />
                   </Box>
                 </Grid>
@@ -177,12 +176,12 @@ const Licenses = () => {
             )}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} sx={gridBodyVacation}>
+        <Grid item xs={12} sm={6} md={5} sx={gridBodyVacation}>
           <Box sx={boxBodyVacation}>
             <Typography sx={typografyVacation}>
               Detalle de Vacaciones
             </Typography>
-            {dataUser.licenceList?.map((license) => (
+            {dataUser?.licenceList?.map((license) => (
               <VacationDetails
                 typeLicense={license?.licenceType?.description}
                 rangeDate={`${license?.startDate} - ${license?.endDate}`}
