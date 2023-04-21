@@ -28,19 +28,12 @@ function App() {
               <Route path="/loader" element={<Loader />} />
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/User" element={<User />} />
-<<<<<<< HEAD
-              <Route path="/CalendarH" element={<CalendarH/>} />
-              <Route path="/EnabledUser" element={<EnabledUser/>}/>
-              {/* <Route path="/CalendarJo" element={<CalendarJo/>}/> */}
-              <Route path="*" element={<h1>Error, ruta no especificada ☹️</h1>}/>
-=======
               <Route path="/CalendarH" element={<CalendarH />} />
               <Route path="/EnabledUser" element={<EnabledUser />} />
               <Route
                 path="*"
                 element={<h1>Error, ruta no especificada ☹️</h1>}
               />
->>>>>>> 1d4c30787b94b35a91d756d5bc7f0b2f1bc92c96
             </>
 
           ) : (

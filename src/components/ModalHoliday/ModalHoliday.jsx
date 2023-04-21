@@ -7,6 +7,7 @@ import Grid  from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { Divider } from "@mui/material";
 import CloseIcon from  "@mui/icons-material/Close";
+import { postHolidays, getHolidays } from "../../services/holidaysServices";
 
 
 const boxStyle = {
@@ -36,7 +37,7 @@ const boxStyle = {
   };
   
 
-export default function ModalJo({}) {
+export default function ModalJo({setRefreshHolidays}) {
   const [open, setOpen] = React.useState(false);
   const [dateValue, setDateValue] = React.useState("");
   const [motivoValue, setMotivoValue] = React.useState("");
@@ -49,7 +50,15 @@ export default function ModalJo({}) {
     //Guardo los valores ingresados en las variables
     const date = dateValue;
     const motivo = motivoValue;
+    
+    const body = {
+    date: dateValue,
+    description: motivoValue,
+    }
 
+    postHolidays(body, setRefreshHolidays);
+    setRefreshHolidays(true);
+    // getHolidays(setRefreshHolidays);
     //Cierro el modal
     handleClose();
   };
@@ -61,7 +70,7 @@ export default function ModalJo({}) {
         Crear Nuevo Feriado
       </Button>
       </div>
-      <Modal
+      <Modal 
         open={open}
         onClose={handleClose}
       >
@@ -113,6 +122,8 @@ export default function ModalJo({}) {
     </div>
   );
 }
+
+
 
 
 
